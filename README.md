@@ -441,7 +441,7 @@ Tests run in parallel by default (5 threads):
 ## 📁 Project Structure
 
 ```
-selenium_java_docker/
+full-stack-testing/
 ├── src/
 │   ├── main/java/com/cjs/qa/app/          # Main application code
 │   └── test/java/com/cjs/qa/              # Test suites (30+ packages)

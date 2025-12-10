@@ -757,7 +757,7 @@ fail-fast: false  # Both browsers run even if one fails
 **Steps**:
 1. Set up Docker Buildx
 2. Build: `docker compose build tests`
-3. Verify: `docker run --rm selenium_java_docker-tests:latest ./mvnw --version`
+3. Verify: `docker compose run --rm tests ./mvnw --version`
 
 **Duration**: ~5-8 minutes (with caching)
 

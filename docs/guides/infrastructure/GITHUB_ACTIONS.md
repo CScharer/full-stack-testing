@@ -180,7 +180,7 @@ Add new repository secret:
 Add to README.md:
 
 ```markdown
-![CI Pipeline](https://github.com/CScharer/selenium_java_docker/workflows/Selenium%20Grid%20CI%2FCD%20Pipeline/badge.svg)
+![CI Pipeline](https://github.com/CScharer/full-stack-testing/workflows/Selenium%20Grid%20CI%2FCD%20Pipeline/badge.svg)
 ```
 
 Result: ![CI Pipeline](https://github.com/CScharer/full-stack-testing/workflows/Selenium%20Grid%20CI%2FCD%20Pipeline/badge.svg)

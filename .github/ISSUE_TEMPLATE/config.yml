@@ -1,12 +1,12 @@
 blank_issues_enabled: false
 contact_links:
   - name: 📚 Documentation
-    url: https://github.com/CScharer/selenium_java_docker/tree/main/docs
+    url: https://github.com/CScharer/full-stack-testing/tree/main/docs
     about: Check the documentation for guides and troubleshooting
   - name: 💬 Discussions
-    url: https://github.com/CScharer/selenium_java_docker/discussions
+    url: https://github.com/CScharer/full-stack-testing/discussions
     about: Ask questions and discuss ideas with the community
   - name: 🔒 Security Issue
-    url: https://github.com/CScharer/selenium_java_docker/security/advisories/new
+    url: https://github.com/CScharer/full-stack-testing/security/advisories/new
     about: Report a security vulnerability privately
 
