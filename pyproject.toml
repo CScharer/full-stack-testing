@@ -1,0 +1,9 @@
+[project]
+name = "cjs-app-gui-package"
+version = "0.1.0"
+dependencies = [
+    "numpy==1.26.4",
+    "structlog==22.1.0",
+    "mypy==1.16.1",
+    "pyright==1.1.402"
+]

@@ -1,0 +1,478 @@
+name: Performance Testing
+
+# Option 1: Scheduled - Weekly on Sunday at 10 PM CST (4 AM UTC Monday)
+# Option 2: Manual Trigger - Run via GitHub Actions UI
+# Option 3: Hybrid - Nightly quick check at 10 PM CST (4 AM UTC)
+
+on:
+  schedule:
+    # Weekly comprehensive test: Sunday 10 PM CST = Monday 4 AM UTC
+    - cron: '0 4 * * 1'
+    # Nightly quick smoke: Every day 10 PM CST = 4 AM UTC next day
+    - cron: '0 4 * * *'
+
+  workflow_dispatch:  # Manual trigger also available
+    inputs:
+      test_type:
+        description: 'Test type to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - locust-only
+          - gatling-only
+          - jmeter-only
+          - quick-smoke
+
+      users:
+        description: 'Number of concurrent users'
+        required: false
+        default: '100'
+
+      duration:
+        description: 'Test duration (e.g., 2m, 5m)'
+        required: false
+        default: '3m'
+
+env:
+  JAVA_VERSION: '21'
+
+jobs:
+  # Determine test type based on schedule or manual input
+  determine-test-type:
+    name: Determine Test Type
+    runs-on: ubuntu-latest
+    outputs:
+      run_quick: ${{ steps.set-type.outputs.run_quick }}
+      run_comprehensive: ${{ steps.set-type.outputs.run_comprehensive }}
+      test_mode: ${{ steps.set-type.outputs.test_mode }}
+
+    steps:
+      - name: Determine what to run
+        id: set-type
+        run: |
+          # Check if this is Sunday (day 0 in cron, but GitHub uses 1-7 where 1=Monday, 7=Sunday)
+          DAY_OF_WEEK=$(date +%u)  # 1=Monday, 7=Sunday
+
+          # Manual trigger
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            TEST_TYPE="${{ github.event.inputs.test_type }}"
+
+            if [ "$TEST_TYPE" == "quick-smoke" ]; then
+              echo "run_quick=true" >> $GITHUB_OUTPUT
+              echo "run_comprehensive=false" >> $GITHUB_OUTPUT
+              echo "test_mode=Quick Smoke (Manual)" >> $GITHUB_OUTPUT
+            else
+              echo "run_quick=false" >> $GITHUB_OUTPUT
+              echo "run_comprehensive=true" >> $GITHUB_OUTPUT
+              echo "test_mode=Comprehensive (Manual - $TEST_TYPE)" >> $GITHUB_OUTPUT
+            fi
+
+          # Scheduled: Sunday = comprehensive, others = quick
+          elif [ "${{ github.event_name }}" == "schedule" ]; then
+            if [ "$DAY_OF_WEEK" == "7" ] || [ "$DAY_OF_WEEK" == "1" ]; then
+              # Sunday (7) or Monday (1) - run comprehensive
+              echo "run_quick=false" >> $GITHUB_OUTPUT
+              echo "run_comprehensive=true" >> $GITHUB_OUTPUT
+              echo "test_mode=Weekly Comprehensive (Scheduled)" >> $GITHUB_OUTPUT
+            else
+              # Other days - run quick smoke
+              echo "run_quick=true" >> $GITHUB_OUTPUT
+              echo "run_comprehensive=false" >> $GITHUB_OUTPUT
+              echo "test_mode=Nightly Quick Smoke (Scheduled)" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+          echo "📊 Test Mode: $(cat $GITHUB_OUTPUT | grep test_mode | cut -d= -f2-)"
+
+  # Option 3: Quick 30-second smoke check (Nightly)
+  quick-performance-check:
+    name: Quick Performance Smoke Check
+    runs-on: ubuntu-latest
+    needs: determine-test-type
+    if: needs.determine-test-type.outputs.run_quick == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Locust
+        run: |
+          pip install locust==2.20.0 requests==2.31.0
+
+      - name: Quick API Performance Test (30 seconds)
+        run: |
+          echo "🚀 Running quick performance smoke check..."
+          echo "Duration: 30 seconds"
+          echo "Users: 10 concurrent"
+          echo ""
+
+          mkdir -p target/locust
+
+          locust -f src/test/locust/api_load_test.py \
+                 --headless \
+                 --users 10 \
+                 --spawn-rate 2 \
+                 --run-time 30s \
+                 --html target/locust/quick-smoke.html \
+                 --csv target/locust/quick-smoke
+
+      - name: Display Results
+        if: always()
+        run: |
+          echo "📊 Quick Performance Check Results:"
+          if [ -f "target/locust/quick-smoke_stats.csv" ]; then
+            echo ""
+            echo "Request Statistics:"
+            cat target/locust/quick-smoke_stats.csv
+          fi
+
+      - name: Upload Quick Check Results
+        uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: quick-performance-check
+          path: target/locust/
+          retention-days: 7
+
+  # Option 1: Comprehensive weekly tests (Sunday 10 PM CST)
+  # Run SECOND - Locust (after Gatling)
+  locust-comprehensive:
+    name: Locust Load Tests (40%) - Step 2
+    runs-on: ubuntu-latest
+    needs: [determine-test-type, gatling-comprehensive]
+    if: |
+      always() &&
+      needs.determine-test-type.outputs.run_comprehensive == 'true' &&
+      (github.event_name == 'schedule' ||
+       github.event.inputs.test_type == 'all' ||
+       github.event.inputs.test_type == 'locust-only')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Locust API Load Test
+        run: |
+          echo "🐝 Running Locust API Load Test..."
+          mkdir -p target/locust
+
+          USERS="${{ github.event.inputs.users || '100' }}"
+          DURATION="${{ github.event.inputs.duration || '3m' }}"
+
+          echo "Users: $USERS"
+          echo "Duration: $DURATION"
+          echo ""
+
+          locust -f src/test/locust/api_load_test.py \
+                 --headless \
+                 --users $USERS \
+                 --spawn-rate 10 \
+                 --run-time $DURATION \
+                 --html target/locust/api-load-report.html \
+                 --csv target/locust/api-load-stats
+
+      - name: Run Locust Comprehensive Test
+        run: |
+          echo "🐝 Running Locust Comprehensive Test..."
+
+          locust -f src/test/locust/comprehensive_load_test.py \
+                 --headless \
+                 --users 150 \
+                 --spawn-rate 15 \
+                 --run-time 3m \
+                 --html target/locust/comprehensive-report.html \
+                 --csv target/locust/comprehensive-stats
+
+      - name: Display Locust Results
+        if: always()
+        run: |
+          echo "📊 Locust Test Results:"
+          echo ""
+          if [ -f "target/locust/api-load-stats_stats.csv" ]; then
+            echo "API Load Test Statistics:"
+            head -20 target/locust/api-load-stats_stats.csv
+            echo ""
+          fi
+
+          if [ -f "target/locust/comprehensive-stats_stats.csv" ]; then
+            echo "Comprehensive Test Statistics:"
+            head -20 target/locust/comprehensive-stats_stats.csv
+          fi
+
+      - name: Upload Locust Results
+        uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: locust-performance-results
+          path: target/locust/
+          retention-days: 30
+
+  # Run FIRST - Gatling
+  gatling-comprehensive:
+    name: Gatling Load Tests (30%) - Step 1
+    runs-on: ubuntu-latest
+    needs: determine-test-type
+    if: |
+      needs.determine-test-type.outputs.run_comprehensive == 'true' &&
+      (github.event_name == 'schedule' ||
+       github.event.inputs.test_type == 'all' ||
+       github.event.inputs.test_type == 'gatling-only')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Run Gatling Simulations
+        run: |
+          echo "⚡ Running Gatling Performance Tests..."
+          echo "Using Gatling profile (Scala-only compilation)..."
+          ./mvnw gatling:test -Pgatling
+
+      - name: Upload Gatling Results
+        uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: gatling-performance-results
+          path: target/gatling/
+          retention-days: 30
+
+  # Run THIRD - JMeter (after Locust) - Using JMeter CLI directly
+  jmeter-comprehensive:
+    name: JMeter Load Tests (30%) - Step 3
+    runs-on: ubuntu-latest
+    needs: [determine-test-type, locust-comprehensive]
+    if: |
+      always() &&
+      needs.determine-test-type.outputs.run_comprehensive == 'true' &&
+      (github.event_name == 'schedule' ||
+       github.event.inputs.test_type == 'all' ||
+       github.event.inputs.test_type == 'jmeter-only')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+
+      - name: Download and Install JMeter
+        run: |
+          echo "📥 Downloading Apache JMeter 5.6.3..."
+          wget -q https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+
+          echo "📦 Extracting JMeter..."
+          tar -xzf apache-jmeter-5.6.3.tgz
+
+          echo "✅ JMeter installed"
+          apache-jmeter-5.6.3/bin/jmeter --version
+
+      - name: Verify JMeter Test Files
+        run: |
+          echo "📊 Verifying JMeter test files..."
+
+          if [ ! -f "src/test/jmeter/API_Performance_Test.jmx" ]; then
+            echo "❌ API_Performance_Test.jmx not found!"
+            exit 1
+          fi
+
+          if [ ! -f "src/test/jmeter/Web_Load_Test.jmx" ]; then
+            echo "❌ Web_Load_Test.jmx not found!"
+            exit 1
+          fi
+
+          echo "✅ API_Performance_Test.jmx ($(wc -c < src/test/jmeter/API_Performance_Test.jmx) bytes)"
+          echo "✅ Web_Load_Test.jmx ($(wc -c < src/test/jmeter/Web_Load_Test.jmx) bytes)"
+
+      - name: Prepare Results Directories
+        run: |
+          mkdir -p target/jmeter/results
+          mkdir -p target/jmeter/reports
+
+      - name: Run API Performance Test
+        continue-on-error: true
+        run: |
+          echo "🚀 Running API Performance Test..."
+          apache-jmeter-5.6.3/bin/jmeter -n \
+            -t src/test/jmeter/API_Performance_Test.jmx \
+            -l target/jmeter/results/api-results.jtl \
+            -e -o target/jmeter/reports/api \
+            -j target/jmeter/api-jmeter.log
+
+          echo ""
+          echo "API Test completed. Results:"
+          ls -la target/jmeter/results/api-results.jtl || echo "No results file"
+          ls -la target/jmeter/reports/api/index.html || echo "No report generated"
+
+      - name: Run Web Load Test
+        continue-on-error: true
+        run: |
+          echo "🚀 Running Web Load Test..."
+          apache-jmeter-5.6.3/bin/jmeter -n \
+            -t src/test/jmeter/Web_Load_Test.jmx \
+            -l target/jmeter/results/web-results.jtl \
+            -e -o target/jmeter/reports/web \
+            -j target/jmeter/web-jmeter.log
+
+          echo ""
+          echo "Web Test completed. Results:"
+          ls -la target/jmeter/results/web-results.jtl || echo "No results file"
+          ls -la target/jmeter/reports/web/index.html || echo "No report generated"
+
+      - name: Display JMeter Results Summary
+        if: always()
+        run: |
+          echo "=========================================="
+          echo "📊 JMeter Performance Test Summary"
+          echo "=========================================="
+          echo ""
+
+          if [ -f "target/jmeter/results/api-results.jtl" ]; then
+            echo "✅ API Test Results:"
+            echo "   File: target/jmeter/results/api-results.jtl"
+            echo "   Size: $(wc -c < target/jmeter/results/api-results.jtl) bytes"
+            echo "   Lines: $(wc -l < target/jmeter/results/api-results.jtl)"
+          else
+            echo "❌ API Test: No results"
+          fi
+
+          echo ""
+
+          if [ -f "target/jmeter/results/web-results.jtl" ]; then
+            echo "✅ Web Test Results:"
+            echo "   File: target/jmeter/results/web-results.jtl"
+            echo "   Size: $(wc -c < target/jmeter/results/web-results.jtl) bytes"
+            echo "   Lines: $(wc -l < target/jmeter/results/web-results.jtl)"
+          else
+            echo "❌ Web Test: No results"
+          fi
+
+          echo ""
+          echo "📁 Generated Files:"
+          find target/jmeter -type f 2>/dev/null | head -30
+          echo ""
+          echo "=========================================="
+
+      - name: Upload JMeter Results
+        uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: jmeter-performance-results
+          path: target/jmeter/
+          retention-days: 30
+
+  # Summary runs after all tests complete
+  performance-summary:
+    name: Performance Test Summary
+    runs-on: ubuntu-latest
+    needs: [determine-test-type, gatling-comprehensive, locust-comprehensive, jmeter-comprehensive]
+    if: |
+      always() &&
+      needs.determine-test-type.outputs.run_comprehensive == 'true'
+
+    steps:
+      - name: Download Locust Results
+        uses: actions/download-artifact@v6
+        continue-on-error: true
+        with:
+          name: locust-performance-results
+          path: results/locust
+
+      - name: Download Gatling Results
+        uses: actions/download-artifact@v6
+        continue-on-error: true
+        with:
+          name: gatling-performance-results
+          path: results/gatling
+
+      - name: Download JMeter Results
+        uses: actions/download-artifact@v6
+        continue-on-error: true
+        with:
+          name: jmeter-performance-results
+          path: results/jmeter
+
+      - name: Generate Summary
+        run: |
+          echo "════════════════════════════════════════════════════════════"
+          echo "📊 PERFORMANCE TEST SUMMARY"
+          echo "════════════════════════════════════════════════════════════"
+          echo ""
+          echo "Test Mode: ${{ needs.determine-test-type.outputs.test_mode }}"
+          echo "Execution Time: $(date)"
+          echo ""
+          echo "────────────────────────────────────────────────────────────"
+          echo "🐝 LOCUST RESULTS (40%):"
+          echo "────────────────────────────────────────────────────────────"
+          if [ -d "results/locust" ]; then
+            find results/locust -name "*.html" | while read file; do
+              echo "  Report: $file"
+            done
+            if [ -f "results/locust/api-load-stats_stats.csv" ]; then
+              echo ""
+              echo "  Key Metrics:"
+              head -5 results/locust/api-load-stats_stats.csv | column -t -s,
+            fi
+          else
+            echo "  ⚠️  No Locust results found"
+          fi
+
+          echo ""
+          echo "────────────────────────────────────────────────────────────"
+          echo "⚡ GATLING RESULTS (30%):"
+          echo "────────────────────────────────────────────────────────────"
+          if [ -d "results/gatling" ]; then
+            find results/gatling -name "index.html" | while read file; do
+              echo "  Report: $file"
+            done
+          else
+            echo "  ⚠️  No Gatling results found"
+          fi
+
+          echo ""
+          echo "────────────────────────────────────────────────────────────"
+          echo "📊 JMETER RESULTS (30%):"
+          echo "────────────────────────────────────────────────────────────"
+          if [ -d "results/jmeter" ]; then
+            find results/jmeter -name "index.html" | while read file; do
+              echo "  Report: $file"
+            done
+          else
+            echo "  ⚠️  No JMeter results found"
+          fi
+
+          echo ""
+          echo "════════════════════════════════════════════════════════════"
+          echo "✅ Performance testing completed!"
+          echo ""
+          echo "📥 Download artifacts to view detailed reports:"
+          echo "   - locust-performance-results"
+          echo "   - gatling-performance-results"
+          echo "   - jmeter-performance-results"
+          echo "════════════════════════════════════════════════════════════"

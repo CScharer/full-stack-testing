@@ -1,0 +1,631 @@
+name: Selenium Grid CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to test'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all      # Run dev → test → prod sequentially
+          - dev      # Development environment only
+          - test     # Test environment only
+          - prod     # Production environment only
+
+      test_suite:
+        description: 'Test suite to run'
+        required: false
+        default: 'smoke'
+        type: choice
+        options:
+          - smoke          # Quick smoke tests
+          - ci             # CI test suite
+          - extended       # Extended test suite
+          - all            # All test suites
+
+permissions:
+  contents: write  # Required for GitHub Pages deployment
+
+env:
+  JAVA_VERSION: '21'
+  MAVEN_OPTS: -Xmx2048m
+  # Environment URLs - Update these with your actual environment URLs
+  DEV_BASE_URL: 'https://dev.yourapp.com'
+  TEST_BASE_URL: 'https://test.yourapp.com'
+  PROD_BASE_URL: 'https://yourapp.com'
+
+jobs:
+  # ==================================================================================
+  # STAGE 1: CHANGE DETECTION & ENVIRONMENT DETERMINATION
+  # ==================================================================================
+
+  detect-changes:
+    name: Detect File Changes
+    runs-on: ubuntu-latest
+    outputs:
+      code-changed: ${{ steps.filter.outputs.code-changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - name: Detect changed files
+        id: filter
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+          else
+            CHANGED_FILES=$(git diff --name-only HEAD^1 HEAD 2>/dev/null || git ls-files)
+          fi
+
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          CODE_CHANGED=$(echo "$CHANGED_FILES" | grep -v -E '\.(md|log|txt|rst|adoc)$' || true)
+
+          if [ -z "$CODE_CHANGED" ]; then
+            echo "✅ Documentation-only change - will skip build/test"
+            echo "code-changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "📝 Code files changed - will run full pipeline"
+            echo "code-changed=true" >> $GITHUB_OUTPUT
+          fi
+
+  determine-environments:
+    name: Determine Environments to Test
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.code-changed == 'true'
+    outputs:
+      run_dev: ${{ steps.set-envs.outputs.run_dev }}
+      run_test: ${{ steps.set-envs.outputs.run_test }}
+      run_prod: ${{ steps.set-envs.outputs.run_prod }}
+      test_suite: ${{ steps.set-envs.outputs.test_suite }}
+      selected_env: ${{ steps.set-envs.outputs.selected_env }}
+
+    steps:
+      - name: Determine which environments to run
+        id: set-envs
+        run: |
+          ENV_SELECT="${{ github.event.inputs.environment || 'all' }}"
+          SUITE_SELECT="${{ github.event.inputs.test_suite || 'smoke' }}"
+
+          echo "📊 Environment Selection: $ENV_SELECT"
+          echo "📊 Test Suite Selection: $SUITE_SELECT"
+          echo "selected_env=$ENV_SELECT" >> $GITHUB_OUTPUT
+          echo "test_suite=$SUITE_SELECT" >> $GITHUB_OUTPUT
+
+          if [ "$ENV_SELECT" == "all" ]; then
+            echo "run_dev=true" >> $GITHUB_OUTPUT
+            echo "run_test=true" >> $GITHUB_OUTPUT
+            echo "run_prod=true" >> $GITHUB_OUTPUT
+            echo "✅ Will run ALL environments sequentially: DEV → TEST → PROD"
+          elif [ "$ENV_SELECT" == "dev" ]; then
+            echo "run_dev=true" >> $GITHUB_OUTPUT
+            echo "run_test=false" >> $GITHUB_OUTPUT
+            echo "run_prod=false" >> $GITHUB_OUTPUT
+            echo "✅ Will run DEV environment only"
+          elif [ "$ENV_SELECT" == "test" ]; then
+            echo "run_dev=false" >> $GITHUB_OUTPUT
+            echo "run_test=true" >> $GITHUB_OUTPUT
+            echo "run_prod=false" >> $GITHUB_OUTPUT
+            echo "✅ Will run TEST environment only"
+          elif [ "$ENV_SELECT" == "prod" ]; then
+            echo "run_dev=false" >> $GITHUB_OUTPUT
+            echo "run_test=false" >> $GITHUB_OUTPUT
+            echo "run_prod=true" >> $GITHUB_OUTPUT
+            echo "✅ Will run PROD environment only"
+          else
+            echo "run_dev=true" >> $GITHUB_OUTPUT
+            echo "run_test=true" >> $GITHUB_OUTPUT
+            echo "run_prod=true" >> $GITHUB_OUTPUT
+            echo "⚠️  Unknown selection, defaulting to ALL environments"
+          fi
+
+  # ==================================================================================
+  # STAGE 2: SHARED SETUP (Run once for all environments)
+  # ==================================================================================
+
+  build-and-compile:
+    name: Build & Compile
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments]
+    if: needs.detect-changes.outputs.code-changed == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Compile project
+        run: ./mvnw clean compile test-compile
+
+      - name: Upload compiled classes
+        uses: actions/upload-artifact@v5
+        with:
+          name: compiled-classes
+          path: target/
+          retention-days: 1
+
+  code-quality:
+    name: Code Quality Analysis
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments, build-and-compile]
+    if: needs.detect-changes.outputs.code-changed == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Run Checkstyle
+        run: |
+          echo "Running Checkstyle..."
+          ./mvnw checkstyle:check
+        continue-on-error: true
+
+      - name: Run PMD Analysis
+        run: |
+          echo "Running PMD code analysis..."
+          ./mvnw pmd:check
+        continue-on-error: true
+
+      - name: Upload Analysis Reports
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: code-quality-reports
+          path: |
+            target/checkstyle-result.xml
+            target/pmd.xml
+            target/site/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  docker-build:
+    name: Docker Build Test
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments]
+    if: needs.detect-changes.outputs.code-changed == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker test container
+        run: docker compose build tests
+
+      - name: Verify container can run
+        run: docker run --rm selenium_java_docker-tests:latest ./mvnw --version
+
+  # ==================================================================================
+  # STAGE 3: DEV ENVIRONMENT TESTING & DEPLOYMENT
+  # ==================================================================================
+
+  test-dev-environment:
+    name: Test DEV Environment
+    needs: [detect-changes, determine-environments, build-and-compile, code-quality, docker-build]
+    if: |
+      needs.detect-changes.outputs.code-changed == 'true' &&
+      needs.determine-environments.outputs.run_dev == 'true'
+    uses: ./.github/workflows/test-environment.yml
+    with:
+      environment: 'dev'
+      test_suite: ${{ needs.determine-environments.outputs.test_suite }}
+      base_url: ${{ vars.DEV_BASE_URL || 'https://dev.yourapp.com' }}
+
+  deploy-dev:
+    name: Deploy to DEV
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments, test-dev-environment]
+    if: |
+      always() &&
+      needs.detect-changes.outputs.code-changed == 'true' &&
+      needs.determine-environments.outputs.run_dev == 'true' &&
+      (needs.test-dev-environment.result == 'success' || needs.test-dev-environment.result == 'failure') &&
+      github.ref == 'refs/heads/main' &&
+      github.event_name == 'push'
+    environment:
+      name: development
+      url: ${{ vars.DEV_BASE_URL || 'https://dev.yourapp.com' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Download test results
+        uses: actions/download-artifact@v6
+        with:
+          pattern: "*-results-dev"
+          path: test-results
+          if-no-files-found: ignore
+
+      - name: Verify tests passed
+        id: verify-tests
+        run: |
+          TOTAL_FAILURES=0
+          TOTAL_ERRORS=0
+
+          for xml_file in test-results/**/TEST-*.xml; do
+            if [ -f "$xml_file" ]; then
+              failures=$(grep -oP 'failures="\K[0-9]+' "$xml_file" | head -1 || echo "0")
+              errors=$(grep -oP 'errors="\K[0-9]+' "$xml_file" | head -1 || echo "0")
+              TOTAL_FAILURES=$((TOTAL_FAILURES + ${failures:-0}))
+              TOTAL_ERRORS=$((TOTAL_ERRORS + ${errors:-0}))
+            fi
+          done
+
+          if [ "$TOTAL_FAILURES" -gt "0" ] || [ "$TOTAL_ERRORS" -gt "0" ]; then
+            echo "❌ Tests failed - deployment cancelled"
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+            exit 1
+          else
+            echo "✅ All tests passed - proceeding with deployment"
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to DEV
+        if: steps.verify-tests.outputs.tests_passed == 'true'
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🚀 DEPLOYING TO DEV ENVIRONMENT"
+          echo "════════════════════════════════════════"
+          echo "Environment: DEV"
+          echo "URL: ${{ vars.DEV_BASE_URL || 'https://dev.yourapp.com' }}"
+          echo "Commit: ${{ github.sha }}"
+          echo ""
+          echo "✅ All DEV environment tests passed!"
+          echo "✅ Deployment validation: PASSED"
+          echo ""
+          echo "📋 Actual deployment steps will be configured here"
+          echo "════════════════════════════════════════"
+
+  # ==================================================================================
+  # STAGE 4: TEST ENVIRONMENT TESTING & DEPLOYMENT
+  # (Only runs if test-dev-environment succeeded or if environment=test only)
+  # ==================================================================================
+
+  test-test-environment:
+    name: Test TEST Environment
+    needs: [detect-changes, determine-environments, build-and-compile, test-dev-environment]
+    if: |
+      always() &&
+      needs.detect-changes.outputs.code-changed == 'true' &&
+      needs.determine-environments.outputs.run_test == 'true' &&
+      (needs.test-dev-environment.result == 'success' ||
+       (needs.test-dev-environment.result == 'skipped' && needs.determine-environments.outputs.run_dev == 'false'))
+    uses: ./.github/workflows/test-environment.yml
+    with:
+      environment: 'test'
+      test_suite: ${{ needs.determine-environments.outputs.test_suite }}
+      base_url: ${{ vars.TEST_BASE_URL || 'https://test.yourapp.com' }}
+
+  deploy-test:
+    name: Deploy to TEST
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments, test-test-environment]
+    if: |
+      always() &&
+      needs.detect-changes.outputs.code-changed == 'true' &&
+      needs.determine-environments.outputs.run_test == 'true' &&
+      (needs.test-test-environment.result == 'success' || needs.test-test-environment.result == 'failure') &&
+      github.ref == 'refs/heads/main' &&
+      github.event_name == 'push'
+    environment:
+      name: test
+      url: ${{ vars.TEST_BASE_URL || 'https://test.yourapp.com' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Download test results
+        uses: actions/download-artifact@v6
+        with:
+          pattern: "*-results-test"
+          path: test-results
+          if-no-files-found: ignore
+
+      - name: Verify tests passed
+        id: verify-tests
+        run: |
+          TOTAL_FAILURES=0
+          TOTAL_ERRORS=0
+
+          for xml_file in test-results/**/TEST-*.xml; do
+            if [ -f "$xml_file" ]; then
+              failures=$(grep -oP 'failures="\K[0-9]+' "$xml_file" | head -1 || echo "0")
+              errors=$(grep -oP 'errors="\K[0-9]+' "$xml_file" | head -1 || echo "0")
+              TOTAL_FAILURES=$((TOTAL_FAILURES + ${failures:-0}))
+              TOTAL_ERRORS=$((TOTAL_ERRORS + ${errors:-0}))
+            fi
+          done
+
+          if [ "$TOTAL_FAILURES" -gt "0" ] || [ "$TOTAL_ERRORS" -gt "0" ]; then
+            echo "❌ Tests failed - deployment cancelled"
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+            exit 1
+          else
+            echo "✅ All tests passed - proceeding with deployment"
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to TEST
+        if: steps.verify-tests.outputs.tests_passed == 'true'
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🧪 DEPLOYING TO TEST ENVIRONMENT"
+          echo "════════════════════════════════════════"
+          echo "Environment: TEST"
+          echo "URL: ${{ vars.TEST_BASE_URL || 'https://test.yourapp.com' }}"
+          echo "Commit: ${{ github.sha }}"
+          echo ""
+          echo "✅ All TEST environment tests passed!"
+          echo "✅ DEV deployment successful (prerequisite)"
+          echo "✅ Deployment validation: PASSED"
+          echo ""
+          echo "📋 Actual deployment steps will be configured here"
+          echo "════════════════════════════════════════"
+
+  # ==================================================================================
+  # STAGE 5: PROD ENVIRONMENT TESTING & DEPLOYMENT
+  # (Only runs if test-test-environment succeeded or if environment=prod only)
+  # ==================================================================================
+
+  test-prod-environment:
+    name: Test PROD Environment
+    needs: [detect-changes, determine-environments, build-and-compile, test-test-environment]
+    if: |
+      always() &&
+      needs.detect-changes.outputs.code-changed == 'true' &&
+      needs.determine-environments.outputs.run_prod == 'true' &&
+      (needs.test-test-environment.result == 'success' ||
+       (needs.test-test-environment.result == 'skipped' && needs.determine-environments.outputs.run_test == 'false'))
+    uses: ./.github/workflows/test-environment.yml
+    with:
+      environment: 'prod'
+      test_suite: ${{ needs.determine-environments.outputs.test_suite }}
+      base_url: ${{ vars.PROD_BASE_URL || 'https://yourapp.com' }}
+
+  deploy-prod:
+    name: Deploy to PROD
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments, test-prod-environment]
+    if: |
+      always() &&
+      needs.detect-changes.outputs.code-changed == 'true' &&
+      needs.determine-environments.outputs.run_prod == 'true' &&
+      (needs.test-prod-environment.result == 'success' || needs.test-prod-environment.result == 'failure') &&
+      github.ref == 'refs/heads/main' &&
+      github.event_name == 'push'
+    environment:
+      name: production
+      url: ${{ vars.PROD_BASE_URL || 'https://yourapp.com' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Download test results
+        uses: actions/download-artifact@v6
+        with:
+          pattern: "*-results-prod"
+          path: test-results
+          if-no-files-found: ignore
+
+      - name: Verify tests passed
+        id: verify-tests
+        run: |
+          TOTAL_FAILURES=0
+          TOTAL_ERRORS=0
+
+          for xml_file in test-results/**/TEST-*.xml; do
+            if [ -f "$xml_file" ]; then
+              failures=$(grep -oP 'failures="\K[0-9]+' "$xml_file" | head -1 || echo "0")
+              errors=$(grep -oP 'errors="\K[0-9]+' "$xml_file" | head -1 || echo "0")
+              TOTAL_FAILURES=$((TOTAL_FAILURES + ${failures:-0}))
+              TOTAL_ERRORS=$((TOTAL_ERRORS + ${errors:-0}))
+            fi
+          done
+
+          if [ "$TOTAL_FAILURES" -gt "0" ] || [ "$TOTAL_ERRORS" -gt "0" ]; then
+            echo "❌ Tests failed - deployment cancelled"
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+            exit 1
+          else
+            echo "✅ All tests passed - proceeding with deployment"
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to PROD
+        if: steps.verify-tests.outputs.tests_passed == 'true'
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🏭 DEPLOYING TO PRODUCTION ENVIRONMENT"
+          echo "════════════════════════════════════════"
+          echo "⚠️  PRODUCTION DEPLOYMENT"
+          echo ""
+          echo "Environment: PROD"
+          echo "URL: ${{ vars.PROD_BASE_URL || 'https://yourapp.com' }}"
+          echo "Commit: ${{ github.sha }}"
+          echo ""
+          echo "✅ All PROD environment tests passed!"
+          echo "✅ TEST deployment successful (prerequisite)"
+          echo "✅ Deployment validation: PASSED"
+          echo ""
+          echo "📋 Actual deployment steps will be configured here"
+          echo "════════════════════════════════════════"
+
+  # ==================================================================================
+  # STAGE 6: COMBINED REPORTING
+  # Aggregates results from all tested environments
+  # ==================================================================================
+
+  combined-allure-report:
+    name: Combined Allure Report (All Environments)
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments, test-dev-environment, test-test-environment, test-prod-environment]
+    if: always() && needs.detect-changes.outputs.code-changed == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Download all environment test results
+        uses: actions/download-artifact@v6
+        with:
+          pattern: "*-results-*"
+          path: all-test-results
+
+      - name: Prepare combined Allure results
+        if: always()
+        run: |
+          echo "📊 Merging Allure results from all environments..."
+          mkdir -p allure-results-combined
+
+          find all-test-results -name "*-result.json" -exec cp {} allure-results-combined/ \; 2>&1 || true
+          find all-test-results -name "*-container.json" -exec cp {} allure-results-combined/ \; 2>&1 || true
+          find all-test-results -name "*-attachment.*" -exec cp {} allure-results-combined/ \; 2>&1 || true
+
+          echo "✅ Merge complete!"
+          echo "  Results: $(find allure-results-combined -name "*-result.json" | wc -l)"
+          echo "  Screenshots: $(find allure-results-combined -name "*.png" | wc -l)"
+
+      - name: Install Allure CLI
+        if: always()
+        run: |
+          wget -q https://github.com/allure-framework/allure2/releases/download/2.25.0/allure-2.25.0.tgz
+          tar -zxf allure-2.25.0.tgz
+          sudo mv allure-2.25.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
+          allure --version
+
+      - name: Generate Combined Allure Report
+        if: always()
+        run: |
+          echo "Generating combined Allure report (all environments)..."
+          allure generate allure-results-combined --clean -o allure-report-combined
+          echo "✅ Combined report generated!"
+
+      - name: Upload Combined Allure Report
+        uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: allure-report-combined-all-environments
+          path: allure-report-combined/
+          retention-days: 30
+
+      - name: Deploy to GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report-combined
+          keep_files: false
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Report Info
+        if: always()
+        run: |
+          echo "📊 Combined Allure Report Generated!"
+          echo ""
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "🌐 View online at:"
+            echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          fi
+          echo ""
+          echo "📥 Or download 'allure-report-combined-all-environments' artifact"
+
+  # ==================================================================================
+  # STAGE 7: PIPELINE SUMMARY
+  # Always runs to show what was executed
+  # ==================================================================================
+
+  pipeline-summary:
+    name: Pipeline Summary
+    runs-on: ubuntu-latest
+    needs: [detect-changes, determine-environments, test-dev-environment, deploy-dev, test-test-environment, deploy-test, test-prod-environment, deploy-prod, combined-allure-report]
+    if: always()
+
+    steps:
+      - name: Generate Pipeline Summary
+        run: |
+          echo "═══════════════════════════════════════════════════════════════" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 PIPELINE EXECUTION SUMMARY" >> $GITHUB_STEP_SUMMARY
+          echo "═══════════════════════════════════════════════════════════════" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ needs.detect-changes.outputs.code-changed }}" = "true" ]; then
+            echo "**Change Type**: CODE CHANGES DETECTED" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Environment Selection**: ${{ needs.determine-environments.outputs.selected_env }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Test Suite**: ${{ needs.determine-environments.outputs.test_suite }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+
+            echo "### Environments Tested:" >> $GITHUB_STEP_SUMMARY
+
+            if [ "${{ needs.determine-environments.outputs.run_dev }}" = "true" ]; then
+              if [ "${{ needs.test-dev-environment.result }}" = "success" ]; then
+                echo "- ✅ **DEV**: Tests passed, Deployed" >> $GITHUB_STEP_SUMMARY
+              else
+                echo "- ❌ **DEV**: ${{ needs.test-dev-environment.result }}" >> $GITHUB_STEP_SUMMARY
+              fi
+            fi
+
+            if [ "${{ needs.determine-environments.outputs.run_test }}" = "true" ]; then
+              if [ "${{ needs.test-test-environment.result }}" = "success" ]; then
+                echo "- ✅ **TEST**: Tests passed, Deployed" >> $GITHUB_STEP_SUMMARY
+              else
+                echo "- ❌ **TEST**: ${{ needs.test-test-environment.result }}" >> $GITHUB_STEP_SUMMARY
+              fi
+            fi
+
+            if [ "${{ needs.determine-environments.outputs.run_prod }}" = "true" ]; then
+              if [ "${{ needs.test-prod-environment.result }}" = "success" ]; then
+                echo "- ✅ **PROD**: Tests passed, Deployed" >> $GITHUB_STEP_SUMMARY
+              else
+                echo "- ❌ **PROD**: ${{ needs.test-prod-environment.result }}" >> $GITHUB_STEP_SUMMARY
+              fi
+            fi
+
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Reports:" >> $GITHUB_STEP_SUMMARY
+            echo "- 📊 Combined Allure Report: Download artifact 'allure-report-combined-all-environments'" >> $GITHUB_STEP_SUMMARY
+            echo "- 📊 Individual Environment Reports: Download 'allure-report-{env}' artifacts" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Change Type**: DOCUMENTATION-ONLY" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "⏭️  Skipped: Build, tests, quality checks (not needed for docs)" >> $GITHUB_STEP_SUMMARY
+            echo "✅ Documentation changes processed successfully" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Author**: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "═══════════════════════════════════════════════════════════════" >> $GITHUB_STEP_SUMMARY

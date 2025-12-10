@@ -1,0 +1,1199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.55.0" timestamp="2025-11-12T08:43:53.111">
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/main/java/com/cjs/qa/app/App.java">
+<violation beginline="5" endline="13" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.app" class="App" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/autocoder/CoderTests.java">
+<violation beginline="48" endline="48" begincolumn="18" endcolumn="27" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.autocoder" class="CoderTests" method="getRecordsFromExcel" variable="SHEET_NAME" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'SHEET_NAME' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/BTSConvertDatabaseToXMLTests.java">
+<violation beginline="141" endline="143" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.bts" class="BTSConvertDatabaseToXMLTests" method="convertDBToXML" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/CompanyEnvironmentSetupTests.java">
+<violation beginline="58" endline="64" begincolumn="12" endcolumn="5" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.bts" class="CompanyEnvironmentSetupTests" method="setCompanyEnvironmentData" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty if statement
+</violation>
+<violation beginline="67" endline="70" begincolumn="12" endcolumn="5" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.bts" class="CompanyEnvironmentSetupTests" method="setCompanyEnvironmentData" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty if statement
+</violation>
+<violation beginline="74" endline="77" begincolumn="12" endcolumn="5" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.bts" class="CompanyEnvironmentSetupTests" method="setCompanyEnvironmentData" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty if statement
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/AbstractPage.java">
+<violation beginline="38" endline="38" begincolumn="18" endcolumn="25" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="AbstractPage" method="selectDropdown" variable="Dropdown" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'Dropdown' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/AddNewAddressClientPage.java">
+<violation beginline="47" endline="47" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="AddNewAddressClientPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/AddNewPolicyPage.java">
+<violation beginline="13" endline="13" begincolumn="24" endcolumn="40" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="AddNewPolicyPage" variable="nodePolicyDetails" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="34" endline="34" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="AddNewPolicyPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/AddNewProductPage.java">
+<violation beginline="28" endline="28" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="AddNewProductPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/AdminFunctionsPage.java">
+<violation beginline="19" endline="19" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="AdminFunctionsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/AmendPage.java">
+<violation beginline="41" endline="41" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="AmendPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiAPlusFarmPage.java">
+<violation beginline="25" endline="25" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiAPlusFarmPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiAdvantagePage.java">
+<violation beginline="25" endline="25" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiAdvantagePage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiAgencyInformationPage.java">
+<violation beginline="20" endline="20" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiAgencyInformationPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiBasicInfoPage.java">
+<violation beginline="39" endline="39" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiBasicInfoPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="51" endline="53" begincolumn="5" endcolumn="5" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="BiBasicInfoPage" method="getBasicInformation" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty while statement
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiBillingInformationPage.java">
+<violation beginline="20" endline="20" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiBillingInformationPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiBillingPage.java">
+<violation beginline="14" endline="14" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiBillingPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiButtonsPage.java">
+<violation beginline="18" endline="18" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiButtonsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiCollectorCarPage.java">
+<violation beginline="24" endline="24" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiCollectorCarPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiLeftNav.java">
+<violation beginline="33" endline="33" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiLeftNav" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiMiscellaneousInformationPage.java">
+<violation beginline="26" endline="26" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiMiscellaneousInformationPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiTerrorismPage.java">
+<violation beginline="18" endline="18" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiTerrorismPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BiUnderwritingPage.java">
+<violation beginline="64" endline="64" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BiUnderwritingPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BtsCrosswordChallengePage.java">
+<violation beginline="19" endline="19" begincolumn="21" endcolumn="29" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BtsCrosswordChallengePage" variable="squareMin" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="20" endline="20" begincolumn="21" endcolumn="29" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BtsCrosswordChallengePage" variable="squareMax" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/BuildPolicyPage.java">
+<violation beginline="36" endline="36" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="BuildPolicyPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/CPLResultsPage.java">
+<violation beginline="12" endline="12" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="CPLResultsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/ClientAddressSelectionPage.java">
+<violation beginline="21" endline="21" begincolumn="24" endcolumn="42" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="ClientAddressSelectionPage" variable="nodeClientSelection" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="25" endline="25" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="ClientAddressSelectionPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/CopyPolicyPage.java">
+<violation beginline="21" endline="21" begincolumn="24" endcolumn="37" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="CopyPolicyPage" variable="nodeCopyPolicy" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="45" endline="45" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="CopyPolicyPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/FormsPage.java">
+<violation beginline="15" endline="15" begincolumn="24" endcolumn="33" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="FormsPage" variable="nodeForms1" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="23" endline="23" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="FormsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/FormsRightNav.java">
+<violation beginline="13" endline="13" begincolumn="24" endcolumn="37" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="FormsRightNav" variable="nodeForm1Admin" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="14" endline="14" begincolumn="24" endcolumn="41" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="FormsRightNav" variable="nodeNavigationMenu" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="34" endline="34" begincolumn="11" endcolumn="40" rule="SingularField" ruleset="Design" package="com.cjs.qa.bts.pages" class="FormsRightNav" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'sidebarIsOpen' could be replaced by a local variable.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/IssuePage.java">
+<violation beginline="13" endline="13" begincolumn="24" endcolumn="43" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="IssuePage" variable="nodeForm1PrintPolicy" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="14" endline="14" begincolumn="24" endcolumn="48" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="IssuePage" variable="nodeForm1ProcessedResults" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="21" endline="21" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="IssuePage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="43" endline="45" begincolumn="5" endcolumn="5" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="IssuePage" method="clickButtonIssueNow" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty while statement
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/IssuePageLeftNav.java">
+<violation beginline="20" endline="20" begincolumn="5" endcolumn="49" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="IssuePageLeftNav" method="clickLinkPremiumSummary" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty while statement
+</violation>
+<violation beginline="25" endline="25" begincolumn="5" endcolumn="49" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="IssuePageLeftNav" method="clickLinkPolicyActivity" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty while statement
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/IssueRightNav.java">
+<violation beginline="13" endline="13" begincolumn="24" endcolumn="37" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="IssueRightNav" variable="nodeForm1Admin" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="15" endline="15" begincolumn="24" endcolumn="41" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="IssueRightNav" variable="nodeNavigationMenu" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="16" endline="16" begincolumn="24" endcolumn="38" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="IssueRightNav" variable="nodeMenuCsubmit" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/LoginPage.java">
+<violation beginline="37" endline="37" begincolumn="11" endcolumn="61" rule="CompareObjectsWithEquals" ruleset="Error Prone" package="com.cjs.qa.bts.pages" class="LoginPage" method="openGenesys" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#compareobjectswithequals" priority="3">
+Use equals() to compare object references.
+</violation>
+<violation beginline="37" endline="37" begincolumn="11" endcolumn="61" rule="UseEqualsToCompareStrings" ruleset="Error Prone" package="com.cjs.qa.bts.pages" class="LoginPage" method="openGenesys" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#useequalstocomparestrings" priority="3">
+Use equals() to compare strings instead of '==' or '!='
+</violation>
+<violation beginline="66" endline="66" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="LoginPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="72" endline="72" begincolumn="24" endcolumn="33" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="LoginPage" variable="loginTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/ManageProductsPage.java">
+<violation beginline="19" endline="19" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="ManageProductsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/NamedInsuredsPage.java">
+<violation beginline="21" endline="21" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="NamedInsuredsPage" variable="nodeForm1" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="26" endline="26" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="NamedInsuredsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/PolicyActivityPage.java">
+<violation beginline="13" endline="13" begincolumn="24" endcolumn="33" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="PolicyActivityPage" variable="addRtnPrem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="15" endline="15" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="PolicyActivityPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/PolicyIssuancePage.java">
+<violation beginline="18" endline="18" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="PolicyIssuancePage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/PremiumSummaryPage.java">
+<violation beginline="26" endline="26" begincolumn="24" endcolumn="35" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="PremiumSummaryPage" variable="nodeViewPort" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="46" endline="46" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="PremiumSummaryPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="178" endline="181" begincolumn="17" endcolumn="95" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="PremiumSummaryPage" method="checkProductInfo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="194" endline="197" begincolumn="17" endcolumn="95" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="PremiumSummaryPage" method="checkProductInfo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="206" endline="209" begincolumn="17" endcolumn="95" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="PremiumSummaryPage" method="checkProductInfo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="222" endline="225" begincolumn="17" endcolumn="95" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="PremiumSummaryPage" method="checkProductInfo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="238" endline="241" begincolumn="17" endcolumn="95" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.bts.pages" class="PremiumSummaryPage" method="checkProductInfo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/RateLeftNavPage.java">
+<violation beginline="12" endline="12" begincolumn="24" endcolumn="40" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RateLeftNavPage" variable="nodeProcessedErrs" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/RatePage.java">
+<violation beginline="20" endline="20" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RatePage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="26" endline="26" begincolumn="24" endcolumn="40" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RatePage" variable="nodeProcessedErrs" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/RateRightNav.java">
+<violation beginline="13" endline="13" begincolumn="24" endcolumn="37" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RateRightNav" variable="nodeForm1Admin" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="15" endline="15" begincolumn="24" endcolumn="41" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RateRightNav" variable="nodeNavigationMenu" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="16" endline="16" begincolumn="24" endcolumn="38" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RateRightNav" variable="nodeMenuCsubmit" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/ReferenceMaterialsPage.java">
+<violation beginline="15" endline="15" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="ReferenceMaterialsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/RequestPrintPage.java">
+<violation beginline="20" endline="20" begincolumn="24" endcolumn="39" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RequestPrintPage" variable="nodeRequestPrint" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="35" endline="35" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="RequestPrintPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/SearchPage.java">
+<violation beginline="38" endline="38" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="SearchPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/pages/SearchResultsPage.java">
+<violation beginline="28" endline="28" begincolumn="24" endcolumn="32" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.bts.pages" class="SearchResultsPage" variable="pageTitle" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/bts/policy/Policy.java">
+<violation beginline="38" endline="38" begincolumn="42" endcolumn="43" rule="UncommentedEmptyMethodBody" ruleset="Documentation" package="com.cjs.qa.bts.policy" class="Policy" method="main" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptymethodbody" priority="3">
+Document empty method body
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/core/Environment.java">
+<violation beginline="50" endline="50" begincolumn="31" endcolumn="47" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.core" class="Environment" variable="classExlusionList" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'classExlusionList'.
+</violation>
+<violation beginline="89" endline="89" begincolumn="23" endcolumn="69" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.core" class="Environment" method="getSheetFailure" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/core/QAException.java">
+<violation beginline="5" endline="5" begincolumn="34" endcolumn="42" rule="DoNotExtendJavaLangThrowable" ruleset="Error Prone" package="com.cjs.qa.core" class="QAException" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#donotextendjavalangthrowable" priority="3">
+Exceptions should not extend java.lang.Throwable
+</violation>
+<violation beginline="15" endline="15" begincolumn="5" endcolumn="30" rule="AssignmentToNonFinalStatic" ruleset="Error Prone" package="com.cjs.qa.core" class="QAException" method="QAException" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#assignmenttononfinalstatic" priority="3">
+Possible unsafe assignment to a non-final static field in a constructor.
+</violation>
+<violation beginline="21" endline="21" begincolumn="5" endcolumn="30" rule="AssignmentToNonFinalStatic" ruleset="Error Prone" package="com.cjs.qa.core" class="QAException" method="QAException" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#assignmenttononfinalstatic" priority="3">
+Possible unsafe assignment to a non-final static field in a constructor.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/core/api/WebService.java">
+<violation beginline="37" endline="37" begincolumn="11" endcolumn="61" rule="SingularField" ruleset="Design" package="com.cjs.qa.core.api" class="WebService" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'soapConnectionFactory' could be replaced by a local variable.
+</violation>
+<violation beginline="38" endline="38" begincolumn="26" endcolumn="39" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.core.api" class="WebService" variable="soapConnection" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'soapConnection'.
+</violation>
+<violation beginline="38" endline="38" begincolumn="11" endcolumn="47" rule="SingularField" ruleset="Design" package="com.cjs.qa.core.api" class="WebService" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'soapConnection' could be replaced by a local variable.
+</violation>
+<violation beginline="39" endline="39" begincolumn="18" endcolumn="20" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.core.api" class="WebService" variable="url" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'url'.
+</violation>
+<violation beginline="39" endline="39" begincolumn="11" endcolumn="28" rule="SingularField" ruleset="Design" package="com.cjs.qa.core.api" class="WebService" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'url' could be replaced by a local variable.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/core/pages/AbstractPage.java">
+<violation beginline="38" endline="38" begincolumn="18" endcolumn="25" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.core.pages" class="AbstractPage" method="selectDropdown" variable="Dropdown" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'Dropdown' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/dropbox/pages/SignInPage.java">
+<violation beginline="99" endline="99" begincolumn="13" endcolumn="62" rule="CompareObjectsWithEquals" ruleset="Error Prone" package="com.cjs.qa.dropbox.pages" class="SignInPage" method="setCheckbox" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#compareobjectswithequals" priority="3">
+Use equals() to compare object references.
+</violation>
+<violation beginline="99" endline="99" begincolumn="13" endcolumn="62" rule="UseEqualsToCompareStrings" ruleset="Error Prone" package="com.cjs.qa.dropbox.pages" class="SignInPage" method="setCheckbox" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#useequalstocomparestrings" priority="3">
+Use equals() to compare strings instead of '==' or '!='
+</violation>
+<violation beginline="104" endline="104" begincolumn="13" endcolumn="62" rule="CompareObjectsWithEquals" ruleset="Error Prone" package="com.cjs.qa.dropbox.pages" class="SignInPage" method="setCheckbox" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#compareobjectswithequals" priority="3">
+Use equals() to compare object references.
+</violation>
+<violation beginline="104" endline="104" begincolumn="13" endcolumn="62" rule="UseEqualsToCompareStrings" ruleset="Error Prone" package="com.cjs.qa.dropbox.pages" class="SignInPage" method="setCheckbox" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#useequalstocomparestrings" priority="3">
+Use equals() to compare strings instead of '==' or '!='
+</violation>
+<violation beginline="112" endline="112" begincolumn="9" endcolumn="58" rule="CompareObjectsWithEquals" ruleset="Error Prone" package="com.cjs.qa.dropbox.pages" class="SignInPage" method="setCheckbox" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#compareobjectswithequals" priority="3">
+Use equals() to compare object references.
+</violation>
+<violation beginline="112" endline="112" begincolumn="9" endcolumn="58" rule="UseEqualsToCompareStrings" ruleset="Error Prone" package="com.cjs.qa.dropbox.pages" class="SignInPage" method="setCheckbox" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#useequalstocomparestrings" priority="3">
+Use equals() to compare strings instead of '==' or '!='
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/everyonesocial/EveryoneSocial.java">
+<violation beginline="67" endline="67" begincolumn="10" endcolumn="28" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.everyonesocial" class="EveryoneSocial" method="EveryoneSocial" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/google/pages/FlightsPage.java">
+<violation beginline="120" endline="120" begincolumn="47" endcolumn="75" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="128" endline="128" begincolumn="48" endcolumn="76" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="152" endline="152" begincolumn="53" endcolumn="67" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="154" endline="154" begincolumn="56" endcolumn="70" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="155" endline="155" begincolumn="62" endcolumn="76" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="157" endline="157" begincolumn="53" endcolumn="67" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="159" endline="159" begincolumn="57" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="161" endline="161" begincolumn="57" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="163" endline="163" begincolumn="57" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="165" endline="165" begincolumn="54" endcolumn="68" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="166" endline="166" begincolumn="63" endcolumn="77" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="168" endline="168" begincolumn="63" endcolumn="77" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlightsOld" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="229" endline="229" begincolumn="43" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlights" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="237" endline="237" begincolumn="44" endcolumn="72" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getFlights" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="333" endline="333" begincolumn="18" endcolumn="29" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getDrivePrice" variable="MILEAGE_2019" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'MILEAGE_2019' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="334" endline="334" begincolumn="21" endcolumn="47" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getDrivePrice" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="335" endline="335" begincolumn="14" endcolumn="33" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.google.pages" class="FlightsPage" method="getDrivePrice" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="378" endline="378" begincolumn="78" endcolumn="86" rule="UnusedFormalParameter" ruleset="Best Practices" package="com.cjs.qa.google.pages" class="FlightsPage" method="getURLAddress" variable="airportTo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused method parameters such as 'airportTo'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/gt/GTWebinarDataTests.java">
+<violation beginline="57" endline="57" begincolumn="48" endcolumn="59" rule="UnusedFormalParameter" ruleset="Best Practices" package="com.cjs.qa.gt" class="GTWebinarDataTests" method="pullFromGTWebinar" variable="dateTimeFrom" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused method parameters such as 'dateTimeFrom'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/gt/api/services/GTWebinarServiceTests.java">
+<violation beginline="65" endline="66" begincolumn="14" endcolumn="68" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.gt.api.services" class="GTWebinarServiceTests" method="GTWebinarServiceTests" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="75" endline="75" begincolumn="9" endcolumn="21" rule="AssignmentToNonFinalStatic" ruleset="Error Prone" package="com.cjs.qa.gt.api.services" class="GTWebinarServiceTests" method="GTWebinarServiceTests" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#assignmenttononfinalstatic" priority="3">
+Possible unsafe assignment to a non-final static field in a constructor.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/iadhs/objects/Payment.java">
+<violation beginline="57" endline="57" begincolumn="10" endcolumn="21" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.iadhs.objects" class="Payment" method="Payment" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="246" endline="373" begincolumn="5" endcolumn="5" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.cjs.qa.iadhs.objects" class="Payment" method="getPaymentTable" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+This for loop can be replaced by a foreach loop
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/jdbc/DBConnections.java">
+<violation beginline="8" endline="179" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.jdbc" class="DBConnections" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/jdbc/JDBC.java">
+<violation beginline="519" endline="519" begincolumn="64" endcolumn="86" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.jdbc" class="JDBC" method="queryResults" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/jdbc/SQL.java">
+<violation beginline="118" endline="118" begincolumn="41" endcolumn="49" rule="UnusedFormalParameter" ruleset="Best Practices" package="com.cjs.qa.jdbc" class="SQL" method="addDBRecord" variable="tableName" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused method parameters such as 'tableName'.
+</violation>
+<violation beginline="739" endline="739" begincolumn="18" endcolumn="34" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.jdbc" class="SQL" method="updateQAToolsWebSubmissionLog" variable="BATCH_FILE_UPDATE" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'BATCH_FILE_UPDATE' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/jdbc/SQLite.java">
+<violation beginline="13" endline="108" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.jdbc" class="SQLite" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="41" endline="41" begincolumn="22" endcolumn="31" rule="CloseResource" ruleset="Error Prone" package="com.cjs.qa.jdbc" class="SQLite" method="createProductSummaryTableAndViews" variable="connection" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Connection object are closed after use
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/dataset/BaseDBUnitTestForJPADao.java">
+<violation beginline="54" endline="54" begincolumn="24" endcolumn="33" rule="CloseResource" ruleset="Error Prone" package="com.cjs.qa.junit.dataset" class="BaseDBUnitTestForJPADao" method="setupTestClass" variable="connection" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Connection object are closed after use
+</violation>
+<violation beginline="80" endline="85" begincolumn="7" endcolumn="7" rule="NonThreadSafeSingleton" ruleset="Multithreading" package="com.cjs.qa.junit.dataset" class="BaseDBUnitTestForJPADao" method="teardownTestClass" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_multithreading.html#nonthreadsafesingleton" priority="3">
+Singleton is not thread safe
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/dbunit/BaseDBUnitTestForJPADao.java">
+<violation beginline="54" endline="54" begincolumn="24" endcolumn="33" rule="CloseResource" ruleset="Error Prone" package="com.cjs.qa.junit.dbunit" class="BaseDBUnitTestForJPADao" method="setupTestClass" variable="connection" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Connection object are closed after use
+</violation>
+<violation beginline="80" endline="85" begincolumn="7" endcolumn="7" rule="NonThreadSafeSingleton" ruleset="Multithreading" package="com.cjs.qa.junit.dbunit" class="BaseDBUnitTestForJPADao" method="teardownTestClass" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_multithreading.html#nonthreadsafesingleton" priority="3">
+Singleton is not thread safe
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/AdvancedFeaturesTests.java">
+<violation beginline="29" endline="29" begincolumn="11" endcolumn="25" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="AdvancedFeaturesTests" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gridUrl' could be replaced by a local variable.
+</violation>
+<violation beginline="58" endline="58" begincolumn="5" endcolumn="92" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="AdvancedFeaturesTests" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="119" endline="119" begincolumn="5" endcolumn="98" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="AdvancedFeaturesTests" method="testCookieManagement" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/DataDrivenTests.java">
+<violation beginline="33" endline="33" begincolumn="11" endcolumn="25" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="DataDrivenTests" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gridUrl' could be replaced by a local variable.
+</violation>
+<violation beginline="62" endline="62" begincolumn="5" endcolumn="92" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="DataDrivenTests" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/EnhancedGridTests.java">
+<violation beginline="30" endline="30" begincolumn="11" endcolumn="25" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="EnhancedGridTests" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gridUrl' could be replaced by a local variable.
+</violation>
+<violation beginline="43" endline="43" begincolumn="5" endcolumn="72" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="EnhancedGridTests" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="69" endline="69" begincolumn="5" endcolumn="92" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="EnhancedGridTests" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="73" endline="73" begincolumn="5" endcolumn="89" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="EnhancedGridTests" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="219" endline="219" begincolumn="5" endcolumn="52" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="EnhancedGridTests" method="testBrowserCapabilities" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="220" endline="220" begincolumn="23" endcolumn="34" rule="UseCollectionIsEmpty" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="EnhancedGridTests" method="testBrowserCapabilities" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#usecollectionisempty" priority="3">
+Substitute calls to size() == 0 (or size() != 0, size() &gt; 0, size() &lt; 1) with calls to isEmpty()
+</violation>
+<violation beginline="296" endline="296" begincolumn="7" endcolumn="88" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="EnhancedGridTests" method="tearDown" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/ExcelFormulaSumTests.java">
+<violation beginline="83" endline="83" begincolumn="18" endcolumn="41" rule="LooseCoupling" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="ExcelFormulaSumTests" method="getColumns" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/GridConnectionTest.java">
+<violation beginline="17" endline="17" begincolumn="11" endcolumn="25" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="GridConnectionTest" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gridUrl' could be replaced by a local variable.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/NegativeTests.java">
+<violation beginline="33" endline="33" begincolumn="11" endcolumn="25" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="NegativeTests" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gridUrl' could be replaced by a local variable.
+</violation>
+<violation beginline="62" endline="62" begincolumn="5" endcolumn="92" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="NegativeTests" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="129" endline="129" begincolumn="7" endcolumn="87" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="NegativeTests" method="testInvalidUrlNavigation" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="274" endline="274" begincolumn="7" endcolumn="81" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="NegativeTests" method="testStaleElementHandling" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/ScenariosTests.java">
+<violation beginline="83" endline="84" begincolumn="11" endcolumn="78" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="ScenariosTests" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'mavenCommand' could be replaced by a local variable.
+</violation>
+<violation beginline="265" endline="268" begincolumn="5" endcolumn="5" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.junit.tests" class="ScenariosTests" method="afterTestTeardown" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty try body
+</violation>
+<violation beginline="795" endline="797" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.junit.tests" class="ScenariosTests" method="microsoft" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/SimpleGridTest.java">
+<violation beginline="22" endline="22" begincolumn="11" endcolumn="25" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="SimpleGridTest" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gridUrl' could be replaced by a local variable.
+</violation>
+<violation beginline="50" endline="50" begincolumn="5" endcolumn="92" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="SimpleGridTest" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/junit/tests/SmokeTests.java">
+<violation beginline="35" endline="35" begincolumn="11" endcolumn="25" rule="SingularField" ruleset="Design" package="com.cjs.qa.junit.tests" class="SmokeTests" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gridUrl' could be replaced by a local variable.
+</violation>
+<violation beginline="68" endline="68" begincolumn="5" endcolumn="92" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.junit.tests" class="SmokeTests" method="setUp" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/linkedin/pages/ContactInfoPage.java">
+<violation beginline="31" endline="31" begincolumn="11" endcolumn="23" rule="AvoidStringBufferField" ruleset="Best Practices" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#avoidstringbufferfield" priority="3">
+StringBuffers can grow quite a lot, and so may become a source of memory leak (if the owning class has a long life time).
+</violation>
+<violation beginline="91" endline="93" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getAddress" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="105" endline="107" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getBirthday" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="119" endline="121" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getConnected" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="134" endline="136" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getEmail" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="148" endline="150" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getIM" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="184" endline="186" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getPhone" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="203" endline="205" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getTwitter" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="234" endline="236" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getWebsite" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="264" endline="266" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getWebsites" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="359" endline="362" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="getValues" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="382" endline="384" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="appendLinkedInField" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="418" endline="420" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="appendLinkedInRecord" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="456" endline="458" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.linkedin.pages" class="ContactInfoPage" method="updateLinkedInTable" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/marlboro/pages/EarnPointsPage.java">
+<violation beginline="96" endline="96" begincolumn="59" endcolumn="70" rule="UnusedFormalParameter" ruleset="Best Practices" package="com.cjs.qa.marlboro.pages" class="EarnPointsPage" method="getHashMapFromFile" variable="filePathName" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused method parameters such as 'filePathName'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/marlboro/pages/OffersAndActivityPage.java">
+<violation beginline="16" endline="16" begincolumn="31" endcolumn="39" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.marlboro.pages" class="OffersAndActivityPage" variable="urlOffers" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'urlOffers'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/marlboro/pages/VerifyInformationInterruptPage.java">
+<violation beginline="21" endline="21" begincolumn="14" endcolumn="31" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.marlboro.pages" class="VerifyInformationInterruptPage" variable="optionRegularBrand" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'optionRegularBrand'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/excel/xls/XLSBarChart.java">
+<violation beginline="23" endline="25" begincolumn="10" endcolumn="3" rule="MissingOverride" ruleset="Best Practices" package="com.cjs.qa.microsoft.excel.xls" class="XLSBarChart" method="getFileName" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#missingoverride" priority="3">
+The method 'getFileName()' is missing an @Override annotation.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/excel/xls/XLSBarChartExample.java">
+<violation beginline="24" endline="137" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.microsoft.excel.xls" class="XLSBarChartExample" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="59" endline="67" begincolumn="11" endcolumn="11" rule="DefaultLabelNotLastInSwitchStmt" ruleset="Best Practices" package="com.cjs.qa.microsoft.excel.xls" class="XLSBarChartExample" method="main" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#defaultlabelnotlastinswitchstmt" priority="3">
+The default label should be the last label in a switch statement
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/excel/xls/XLSCellFonts.java">
+<violation beginline="17" endline="17" begincolumn="10" endcolumn="26" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.microsoft.excel.xls" class="XLSCellFonts" method="XLSCellFonts" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/excel/xls/XLSCellStyles.java">
+<violation beginline="23" endline="23" begincolumn="10" endcolumn="27" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.microsoft.excel.xls" class="XLSCellStyles" method="XLSCellStyles" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="196" endline="196" begincolumn="43" endcolumn="81" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.excel.xls" class="XLSCellStyles" method="setCellStyles" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/excel/xls/XLSXLineChart.java">
+<violation beginline="39" endline="95" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.microsoft.excel.xls" class="XLSXLineChart" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/excel/xlsx/XLSXCellFonts.java">
+<violation beginline="17" endline="17" begincolumn="10" endcolumn="27" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.microsoft.excel.xlsx" class="XLSXCellFonts" method="XLSXCellFonts" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/excel/xlsx/XLSXCellStyles.java">
+<violation beginline="23" endline="23" begincolumn="10" endcolumn="28" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.microsoft.excel.xlsx" class="XLSXCellStyles" method="XLSXCellStyles" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="197" endline="197" begincolumn="43" endcolumn="81" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.excel.xlsx" class="XLSXCellStyles" method="setCellStyles" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="211" endline="211" begincolumn="31" endcolumn="44" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.excel.xlsx" class="XLSXCellStyles" method="getCellStyle" variable="XLSXCellStyles" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'XLSXCellStyles' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/pages/BingPage.java">
+<violation beginline="32" endline="32" begincolumn="15" endcolumn="20" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.microsoft.pages" class="BingPage" variable="search" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'search'.
+</violation>
+<violation beginline="81" endline="81" begincolumn="19" endcolumn="29" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchRandomSites" variable="SELECT_LINK" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'SELECT_LINK' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="82" endline="82" begincolumn="18" endcolumn="35" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchRandomSites" variable="PROCESS_TIME_HOURS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'PROCESS_TIME_HOURS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="83" endline="83" begincolumn="18" endcolumn="42" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchRandomSites" variable="PROCESS_TIME_MILLISECONDS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'PROCESS_TIME_MILLISECONDS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="84" endline="84" begincolumn="15" endcolumn="24" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchRandomSites" variable="WORD_LIMIT" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'WORD_LIMIT' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="139" endline="140" begincolumn="14" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchRandomSites" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="149" endline="149" begincolumn="14" endcolumn="98" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchRandomSites" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="251" endline="251" begincolumn="18" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchVivitSites" variable="URL_VIVIT" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'URL_VIVIT' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="252" endline="252" begincolumn="18" endcolumn="29" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchVivitSites" variable="URL_VIVIT_YM" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'URL_VIVIT_YM' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="253" endline="253" begincolumn="18" endcolumn="21" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchVivitSites" variable="LUGS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LUGS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="254" endline="254" begincolumn="18" endcolumn="21" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="BingPage" method="searchVivitSites" variable="SIGS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'SIGS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/pages/DailyPollQuizPages.java">
+<violation beginline="31" endline="31" begincolumn="15" endcolumn="27" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.microsoft.pages" class="DailyPollQuizPages" variable="answersNeeded" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'answersNeeded'.
+</violation>
+<violation beginline="31" endline="31" begincolumn="11" endcolumn="28" rule="SingularField" ruleset="Design" package="com.cjs.qa.microsoft.pages" class="DailyPollQuizPages" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'answersNeeded' could be replaced by a local variable.
+</violation>
+<violation beginline="69" endline="69" begincolumn="7" endcolumn="46" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="DailyPollQuizPages" method="clickStartPlayingButton" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty if statement
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/pages/RewardsPage.java">
+<violation beginline="722" endline="722" begincolumn="31" endcolumn="60" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="RewardsPage" method="isSearchesNeeded" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="748" endline="748" begincolumn="26" endcolumn="75" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.pages" class="RewardsPage" method="isSearchesNeeded" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/powerpoint/PowerPoint.java">
+<violation beginline="17" endline="84" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.microsoft.powerpoint" class="PowerPoint" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/sharepoint/services/SharepointServiceTests.java">
+<violation beginline="39" endline="39" begincolumn="14" endcolumn="54" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.sharepoint.services" class="SharepointServiceTests" method="SharepointServiceTests" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="40" endline="40" begincolumn="15" endcolumn="63" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.sharepoint.services" class="SharepointServiceTests" method="SharepointServiceTests" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="61" endline="62" begincolumn="12" endcolumn="68" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.sharepoint.services" class="SharepointServiceTests" method="SharepointServiceTests" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="61" endline="61" begincolumn="13" endcolumn="53" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.sharepoint.services" class="SharepointServiceTests" method="SharepointServiceTests" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="62" endline="62" begincolumn="19" endcolumn="67" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.sharepoint.services" class="SharepointServiceTests" method="SharepointServiceTests" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/utilities/XlsReader.java">
+<violation beginline="148" endline="148" begincolumn="23" endcolumn="60" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.microsoft.utilities" class="XlsReader" method="getCellData" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/microsoft/word/WordTests.java">
+<violation beginline="183" endline="185" begincolumn="7" endcolumn="5" rule="IdenticalCatchBranches" ruleset="Code Style" package="com.cjs.qa.microsoft.word" class="WordTests" method="testNumbering" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#identicalcatchbranches" priority="3">
+'catch' branch identical to 'FileNotFoundException' branch
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/oracle/api/services/EntityService.java">
+<violation beginline="1727" endline="1727" begincolumn="18" endcolumn="27" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.oracle.api.services" class="EntityService" method="getOrgProjectDynamic" variable="LEEDRating" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LEEDRating' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/polkcounty/pages/Details.java">
+<violation beginline="258" endline="258" begincolumn="31" endcolumn="37" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.polkcounty.pages" class="Details" method="getCaseMap" variable="CaseMap" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'CaseMap' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/polkcounty/pages/Main.java">
+<violation beginline="429" endline="429" begincolumn="31" endcolumn="37" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.polkcounty.pages" class="Main" method="getCaseMap" variable="CaseMap" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'CaseMap' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/rest/REST.java">
+<violation beginline="16" endline="103" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.rest" class="REST" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="48" endline="48" begincolumn="85" endcolumn="91" rule="UseStandardCharsets" ruleset="Best Practices" package="com.cjs.qa.rest" class="REST" method="getAPIJSONResponse" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#usestandardcharsets" priority="3">
+Please use StandardCharsets constants
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/saucelabs/SauceUtils.java">
+<violation beginline="25" endline="27" begincolumn="5" endcolumn="5" rule="NonThreadSafeSingleton" ruleset="Multithreading" package="com.cjs.qa.saucelabs" class="SauceUtils" method="getSauceRestClient" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_multithreading.html#nonthreadsafesingleton" priority="3">
+Singleton is not thread safe
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/selenium/ISelenium.java">
+<violation beginline="602" endline="616" begincolumn="7" endcolumn="7" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.cjs.qa.selenium" class="ISelenium" method="webCheckboxSelect" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="782" endline="782" begincolumn="30" endcolumn="36" rule="CloseResource" ruleset="Error Prone" package="com.cjs.qa.selenium" class="ISelenium" method="browserProfiling" variable="service" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this GeckoDriverService object are closed after use
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/selenium/Page.java">
+<violation beginline="99" endline="99" begincolumn="21" endcolumn="37" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.selenium" class="Page" variable="flashMilliseconds" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/selenium/Selenium.java">
+<violation beginline="59" endline="62" begincolumn="5" endcolumn="5" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.selenium" class="Selenium" method="getSessionInformation" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty block
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/selenium/SeleniumWebDriver.java">
+<violation beginline="403" endline="405" begincolumn="7" endcolumn="5" rule="AvoidCatchingThrowable" ruleset="Error Prone" package="com.cjs.qa.selenium" class="SeleniumWebDriver" method="getWebDriverInfo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#avoidcatchingthrowable" priority="3">
+A catch statement should never catch throwable since it includes errors.
+</violation>
+<violation beginline="480" endline="564" begincolumn="9" endcolumn="9" rule="DefaultLabelNotLastInSwitchStmt" ruleset="Best Practices" package="com.cjs.qa.selenium" class="SeleniumWebDriver" method="initializeWebDriver" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#defaultlabelnotlastinswitchstmt" priority="3">
+The default label should be the last label in a switch statement
+</violation>
+<violation beginline="504" endline="504" begincolumn="32" endcolumn="38" rule="CloseResource" ruleset="Error Prone" package="com.cjs.qa.selenium" class="SeleniumWebDriver" method="initializeWebDriver" variable="service" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this GeckoDriverService object are closed after use
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/soap/SOAP.java">
+<violation beginline="47" endline="47" begincolumn="82" endcolumn="88" rule="UseStandardCharsets" ruleset="Best Practices" package="com.cjs.qa.soap" class="SOAP" method="getSoapMessageFromString" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#usestandardcharsets" priority="3">
+Please use StandardCharsets constants
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/united/pages/SecurityPage.java">
+<violation beginline="38" endline="38" begincolumn="18" endcolumn="25" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.united.pages" class="SecurityPage" method="selectDropdownWithPartialText" variable="Dropdown" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'Dropdown' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/AllureHelper.java">
+<violation beginline="16" endline="178" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="AllureHelper" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="34" endline="34" begincolumn="9" endcolumn="54" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.utilities" class="AllureHelper" method="captureScreenshot" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="36" endline="36" begincolumn="9" endcolumn="75" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.utilities" class="AllureHelper" method="captureScreenshot" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="62" endline="62" begincolumn="9" endcolumn="75" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.utilities" class="AllureHelper" method="takeScreenshot" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="118" endline="118" begincolumn="9" endcolumn="73" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.utilities" class="AllureHelper" method="logBrowserInfo" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="135" endline="135" begincolumn="9" endcolumn="75" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.utilities" class="AllureHelper" method="attachPageSource" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/CommandLineTests.java">
+<violation beginline="32" endline="32" begincolumn="18" endcolumn="32" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="CommandLineTests" method="testGetJpsProcesses" variable="SUREFIRE_BOOTER" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'SUREFIRE_BOOTER' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/Convert.java">
+<violation beginline="174" endline="174" begincolumn="15" endcolumn="24" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="Convert" method="fromNumberToLetter" variable="MAX_NUMBER" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'MAX_NUMBER' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="185" endline="185" begincolumn="15" endcolumn="24" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="Convert" method="fromNumberToLetterExcel" variable="MAX_NUMBER" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'MAX_NUMBER' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="198" endline="198" begincolumn="28" endcolumn="70" rule="PrimitiveWrapperInstantiation" ruleset="Best Practices" package="com.cjs.qa.utilities" class="Convert" method="fromNumberToLetterExcel" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#primitivewrapperinstantiation" priority="3">
+Do not use `new Character(...)`, prefer `Character.valueOf(...)`
+</violation>
+<violation beginline="203" endline="203" begincolumn="28" endcolumn="62" rule="PrimitiveWrapperInstantiation" ruleset="Best Practices" package="com.cjs.qa.utilities" class="Convert" method="fromNumberToLetterExcel" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#primitivewrapperinstantiation" priority="3">
+Do not use `new Character(...)`, prefer `Character.valueOf(...)`
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/Email.java">
+<violation beginline="194" endline="194" begincolumn="15" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="Email" method="sendEmail" variable="ATTEMPTS_MAX" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'ATTEMPTS_MAX' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/Encoder.java">
+<violation beginline="9" endline="9" begincolumn="24" endcolumn="35" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.utilities" class="Encoder" variable="characters26" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="10" endline="10" begincolumn="24" endcolumn="35" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.utilities" class="Encoder" variable="characters52" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/FSOTests.java">
+<violation beginline="215" endline="215" begincolumn="15" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="FSOTests" method="fileDownloadFromURL" variable="ATTEMPTS_MAX" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'ATTEMPTS_MAX' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="284" endline="284" begincolumn="18" endcolumn="25" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="FSOTests" method="fileValidateName" variable="REPLACER" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'REPLACER' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="593" endline="593" begincolumn="87" endcolumn="94" rule="UnusedFormalParameter" ruleset="Best Practices" package="com.cjs.qa.utilities" class="FSOTests" method="replaceEscapedCharacter" variable="replacer" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused method parameters such as 'replacer'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/GoogleCloud.java">
+<violation beginline="9" endline="54" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="GoogleCloud" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/HTML.java">
+<violation beginline="15" endline="15" begincolumn="11" endcolumn="33" rule="SingularField" ruleset="Design" package="com.cjs.qa.utilities" class="HTML" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'fileName' could be replaced by a local variable.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/JavaHelpers.java">
+<violation beginline="474" endline="474" begincolumn="10" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.utilities" class="JavaHelpers" method="getCurrentMethodDebugName" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="534" endline="534" begincolumn="18" endcolumn="35" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="JavaHelpers" method="getExclusions" variable="EXCLUSION_STANDARD" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'EXCLUSION_STANDARD' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="776" endline="776" begincolumn="34" endcolumn="50" rule="LooseCoupling" ruleset="Best Practices" package="com.cjs.qa.utilities" class="JavaHelpers" method="isSorted" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="1035" endline="1036" begincolumn="7" endcolumn="87" rule="PreserveStackTrace" ruleset="Best Practices" package="com.cjs.qa.utilities" class="JavaHelpers" method="readPDF" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#preservestacktrace" priority="3">
+New exception is thrown in catch block, original stack trace may be lost
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/ODBCMSAccess.java">
+<violation beginline="13" endline="115" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="ODBCMSAccess" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="48" endline="48" begincolumn="26" endcolumn="41" rule="CloseResource" ruleset="Error Prone" package="com.cjs.qa.utilities" class="ODBCMSAccess" method="main" variable="connectionSQLite" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Connection object are closed after use
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/Parameter.java">
+<violation beginline="11" endline="11" begincolumn="10" endcolumn="23" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.utilities" class="Parameter" method="Parameter" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/ParameterHelper.java">
+<violation beginline="304" endline="304" begincolumn="9" endcolumn="26" rule="UseCollectionIsEmpty" ruleset="Best Practices" package="com.cjs.qa.utilities" class="ParameterHelper" method="toString" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#usecollectionisempty" priority="3">
+Substitute calls to size() == 0 (or size() != 0, size() &gt; 0, size() &lt; 1) with calls to isEmpty()
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/Project.java">
+<violation beginline="6" endline="191" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="Project" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="29" endline="29" begincolumn="18" endcolumn="23" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="Project" method="pathAutomation" variable="OSName" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'OSName' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/QALogger.java">
+<violation beginline="5" endline="5" begincolumn="31" endcolumn="39" rule="DoNotExtendJavaLangThrowable" ruleset="Error Prone" package="com.cjs.qa.utilities" class="QALogger" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#donotextendjavalangthrowable" priority="3">
+Exceptions should not extend java.lang.Throwable
+</violation>
+<violation beginline="16" endline="16" begincolumn="5" endcolumn="46" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.utilities" class="QALogger" method="QALogger" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+<violation beginline="17" endline="17" begincolumn="5" endcolumn="49" rule="GuardLogStatement" ruleset="Best Practices" package="com.cjs.qa.utilities" class="QALogger" method="QALogger" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#guardlogstatement" priority="2">
+Logger calls should be surrounded by log level guards.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/Reporting.java">
+<violation beginline="14" endline="83" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="Reporting" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="33" endline="33" begincolumn="20" endcolumn="28" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="Reporting" method="updateReportExcel" variable="FILE_LOCK" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'FILE_LOCK' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/Reports.java">
+<violation beginline="20" endline="368" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="Reports" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="40" endline="40" begincolumn="44" endcolumn="60" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.utilities" class="Reports" variable="MAP_STRING_COUNTS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'MAP_STRING_COUNTS'.
+</violation>
+<violation beginline="42" endline="42" begincolumn="33" endcolumn="35" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.utilities" class="Reports" variable="FSO" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'FSO'.
+</violation>
+<violation beginline="75" endline="75" begincolumn="18" endcolumn="31" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="Reports" method="createReportExcelLock" variable="FILE_NAME_LOCK" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'FILE_NAME_LOCK' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="322" endline="322" begincolumn="14" endcolumn="45" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.utilities" class="Reports" method="writeFailureData" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/SecureConfig.java">
+<violation beginline="20" endline="132" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="SecureConfig" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/SoftAssert.java">
+<violation beginline="30" endline="30" begincolumn="9" endcolumn="23" rule="UseCollectionIsEmpty" ruleset="Best Practices" package="com.cjs.qa.utilities" class="SoftAssert" method="assertAll" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#usecollectionisempty" priority="3">
+Substitute calls to size() == 0 (or size() != 0, size() &gt; 0, size() &lt; 1) with calls to isEmpty()
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/SystemProcesses.java">
+<violation beginline="19" endline="312" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="SystemProcesses" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+<violation beginline="253" endline="253" begincolumn="15" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="SystemProcesses" method="importData" variable="RECORD_START" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'RECORD_START' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="254" endline="254" begincolumn="15" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.utilities" class="SystemProcesses" method="importData" variable="RECORD_LIMIT" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'RECORD_LIMIT' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/TestSWD.java">
+<violation beginline="9" endline="26" begincolumn="8" endcolumn="1" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" package="com.cjs.qa.utilities" class="TestSWD" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+A class which only has private constructors should be final
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/WebDriverUtils.java">
+<violation beginline="21" endline="21" begincolumn="24" endcolumn="38" rule="FinalFieldCouldBeStatic" ruleset="Design" package="com.cjs.qa.utilities" class="WebDriverUtils" variable="pathScreenshots" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+This final field could be made static
+</violation>
+<violation beginline="77" endline="77" begincolumn="11" endcolumn="24" rule="LogicInversion" ruleset="Design" package="com.cjs.qa.utilities" class="WebDriverUtils" method="takeScreenshot" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#logicinversion" priority="3">
+Use opposite operator instead of the logic complement operator.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/XML.java">
+<violation beginline="71" endline="71" begincolumn="21" endcolumn="23" rule="UnusedFormalParameter" ruleset="Best Practices" package="com.cjs.qa.utilities" class="XML" method="XML" variable="xml" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused constructor parameters such as 'xml'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/utilities/XSLT.java">
+<violation beginline="18" endline="18" begincolumn="96" endcolumn="97" rule="UncommentedEmptyMethodBody" ruleset="Documentation" package="com.cjs.qa.utilities" class="XSLT" method="main" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptymethodbody" priority="3">
+Document empty method body
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/VivitDataTests.java">
+<violation beginline="182" endline="182" begincolumn="59" endcolumn="72" rule="LogicInversion" ruleset="Design" package="com.cjs.qa.vivit" class="VivitDataTests" method="createStandardTables" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#logicinversion" priority="3">
+Use opposite operator instead of the logic complement operator.
+</violation>
+<violation beginline="1074" endline="1074" begincolumn="42" endcolumn="96" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.vivit" class="VivitDataTests" method="createReportAutomationStatistics" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="1633" endline="1633" begincolumn="15" endcolumn="21" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit" class="VivitDataTests" method="formatReportBarCharts" variable="TIMEOUT" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'TIMEOUT' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="3105" endline="3105" begincolumn="18" endcolumn="30" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit" class="VivitDataTests" method="updateTableFromCurrentToPreviousAndInsert" variable="LABEL_CURRENT" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LABEL_CURRENT' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="3106" endline="3106" begincolumn="18" endcolumn="31" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit" class="VivitDataTests" method="updateTableFromCurrentToPreviousAndInsert" variable="LABEL_PREVIOUS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LABEL_PREVIOUS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/objects/Blogs.java">
+<violation beginline="22" endline="22" begincolumn="10" endcolumn="19" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.vivit.objects" class="Blogs" method="Blogs" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/objects/Calendars.java">
+<violation beginline="22" endline="22" begincolumn="10" endcolumn="23" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.vivit.objects" class="Calendars" method="Calendars" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/objects/Forums.java">
+<violation beginline="23" endline="23" begincolumn="10" endcolumn="20" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.vivit.objects" class="Forums" method="Forums" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/objects/GroupLeaderLink.java">
+<violation beginline="22" endline="22" begincolumn="10" endcolumn="29" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.vivit.objects" class="GroupLeaderLink" method="GroupLeaderLink" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/objects/Groups.java">
+<violation beginline="39" endline="39" begincolumn="10" endcolumn="20" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.vivit.objects" class="Groups" method="Groups" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/objects/Leaders.java">
+<violation beginline="21" endline="21" begincolumn="10" endcolumn="21" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.vivit.objects" class="Leaders" method="Leaders" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/pages/GroupPage.java">
+<violation beginline="84" endline="84" begincolumn="18" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="GroupPage" method="getGroupData" variable="SYMBOL_ID" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'SYMBOL_ID' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="234" endline="234" begincolumn="18" endcolumn="30" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="GroupPage" method="getGroupURLs" variable="ROOT_NODE_PRE" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'ROOT_NODE_PRE' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="235" endline="235" begincolumn="18" endcolumn="31" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="GroupPage" method="getGroupURLs" variable="ROOT_NODE_POST" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'ROOT_NODE_POST' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="250" endline="250" begincolumn="20" endcolumn="23" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="GroupPage" method="searchSites" variable="LIGS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LIGS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="251" endline="251" begincolumn="20" endcolumn="23" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="GroupPage" method="searchSites" variable="SIGS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'SIGS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/pages/HomePage.java">
+<violation beginline="82" endline="82" begincolumn="15" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="HomePage" method="getLogoSource" variable="ATTEMPTS_MAX" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'ATTEMPTS_MAX' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="112" endline="112" begincolumn="15" endcolumn="26" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="HomePage" method="signIn" variable="ATTEMPTS_MAX" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'ATTEMPTS_MAX' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/pages/SearchPage.java">
+<violation beginline="26" endline="26" begincolumn="20" endcolumn="23" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="SearchPage" method="searchSites" variable="LIGS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LIGS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="27" endline="27" begincolumn="20" endcolumn="23" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="SearchPage" method="searchSites" variable="SIGS" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'SIGS' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="108" endline="108" begincolumn="18" endcolumn="22" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="SearchPage" method="validateGroup" variable="GROUP" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'GROUP' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/vivit/pages/StaffPage.java">
+<violation beginline="134" endline="134" begincolumn="20" endcolumn="30" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.vivit.pages" class="StaffPage" method="getData" variable="LABEL_PHONE" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LABEL_PHONE' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/wellmark/pages/ClaimsAndSpendingPage.java">
+<violation beginline="54" endline="54" begincolumn="18" endcolumn="27" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.wellmark.pages" class="ClaimsAndSpendingPage" method="getHeadingInfo" variable="LABEL_SPAN" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'LABEL_SPAN' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="100" endline="100" begincolumn="18" endcolumn="25" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.wellmark.pages" class="ClaimsAndSpendingPage" method="getRecords" variable="BY_XPATH" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'BY_XPATH' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/wellmark/pages/LogInPage.java">
+<violation beginline="58" endline="58" begincolumn="5" endcolumn="49" rule="EmptyControlStatement" ruleset="Code Style" package="com.cjs.qa.wellmark.pages" class="LogInPage" method="waitPageLoad" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty do..while statement
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/wellmark/pages/TempPage.java">
+<violation beginline="14" endline="14" begincolumn="20" endcolumn="27" rule="UnusedPrivateField" ruleset="Best Practices" package="com.cjs.qa.wellmark.pages" class="TempPage" variable="linksULR" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'linksULR'.
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/ym/YMDataTests.java">
+<violation beginline="1540" endline="1540" begincolumn="34" endcolumn="56" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.ym" class="YMDataTests" method="verification" variable="yourMembership_Response" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'yourMembership_Response' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/ym/api/dataobjects/UnmarshallYourMembershipResponse.java">
+<violation beginline="42" endline="75" begincolumn="7" endcolumn="7" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.cjs.qa.ym.api.dataobjects" class="UnmarshallYourMembershipResponse" method="get" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="46" endline="74" begincolumn="9" endcolumn="9" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.cjs.qa.ym.api.dataobjects" class="UnmarshallYourMembershipResponse" method="get" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+This for loop can be replaced by a foreach loop
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/ym/api/dataobjects/WorkingTests.java">
+<violation beginline="17" endline="17" begincolumn="34" endcolumn="56" rule="LocalVariableNamingConventions" ruleset="Code Style" package="com.cjs.qa.ym.api.dataobjects" class="WorkingTests" method="verification" variable="yourMembership_Response" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#localvariablenamingconventions" priority="1">
+The final local variable name 'yourMembership_Response' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/ym/api/objects/Attendee.java">
+<violation beginline="15" endline="15" begincolumn="10" endcolumn="22" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.ym.api.objects" class="Attendee" method="Attendee" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/ym/api/objects/Event.java">
+<violation beginline="13" endline="13" begincolumn="10" endcolumn="19" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="com.cjs.qa.ym.api.objects" class="Event" method="Event" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+</file>
+<file name="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/ym/api/services/YMService.java">
+<violation beginline="66" endline="67" begincolumn="14" endcolumn="68" rule="UselessParentheses" ruleset="Code Style" package="com.cjs.qa.ym.api.services" class="YMService" method="YMService" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="76" endline="76" begincolumn="9" endcolumn="21" rule="AssignmentToNonFinalStatic" ruleset="Error Prone" package="com.cjs.qa.ym.api.services" class="YMService" method="YMService" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#assignmenttononfinalstatic" priority="3">
+Possible unsafe assignment to a non-final static field in a constructor.
+</violation>
+</file>
+<suppressedviolation filename="/home/runner/work/selenium_java_docker/selenium_java_docker/src/test/java/com/cjs/qa/soap/SOAP.java" suppressiontype="annotation" msg="Avoid unused local variables such as 'soapMessageString'." usermsg=""></suppressedviolation>
+</pmd>
