@@ -384,14 +384,19 @@ jobs:
         timeout-minutes: 10
         working-directory: ./cypress
         env:
-          CYPRESS_BASE_URL: ${{ inputs.base_url || 'https://www.google.com' }}
+          CYPRESS_BASE_URL: ${{ inputs.base_url }}
           TEST_ENVIRONMENT: ${{ inputs.environment }}
         run: |
           echo "════════════════════════════════════════"
           echo "🎬 Cypress Tests - ${{ inputs.environment }}"
           echo "════════════════════════════════════════"
           echo "Environment: ${{ inputs.environment }}"
-          echo "Base URL: ${{ inputs.base_url || 'https://www.google.com' }}"
+          BASE_URL="${{ inputs.base_url }}"
+          if [ -z "$BASE_URL" ]; then
+            BASE_URL="https://www.google.com"
+          fi
+          echo "Base URL: $BASE_URL"
+          export CYPRESS_BASE_URL="$BASE_URL"
           echo ""
           xvfb-run -a npm run cypress:run
 
@@ -434,7 +439,7 @@ jobs:
         timeout-minutes: 10
         working-directory: ./playwright
         env:
-          BASE_URL: ${{ inputs.base_url || 'https://www.google.com' }}
+          BASE_URL: ${{ inputs.base_url }}
           TEST_ENVIRONMENT: ${{ inputs.environment }}
           CI: true
         run: |
@@ -442,7 +447,12 @@ jobs:
           echo "🎭 Playwright Tests - ${{ inputs.environment }}"
           echo "════════════════════════════════════════"
           echo "Environment: ${{ inputs.environment }}"
-          echo "Base URL: ${{ inputs.base_url || 'https://www.google.com' }}"
+          BASE_URL="${{ inputs.base_url }}"
+          if [ -z "$BASE_URL" ]; then
+            BASE_URL="https://www.google.com"
+          fi
+          echo "Base URL: $BASE_URL"
+          export BASE_URL="$BASE_URL"
           echo ""
           npm test
 
