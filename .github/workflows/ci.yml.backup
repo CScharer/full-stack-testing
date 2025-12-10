@@ -1098,7 +1098,7 @@ jobs:
         run: docker compose build tests
 
       - name: Verify container can run
-        run: docker run --rm selenium_java_docker-tests:latest ./mvnw --version
+        run: docker run --rm full-stack-testing-tests:latest ./mvnw --version
 
   test-summary:
     name: Test Summary
