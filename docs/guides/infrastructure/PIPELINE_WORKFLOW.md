@@ -234,7 +234,7 @@ on:
 ```
 
 ### **Manual Trigger**:
-1. Go to: https://github.com/CScharer/selenium_java_docker/actions
+1. Go to: https://github.com/CScharer/full-stack-testing/actions
 2. Select "Selenium Grid CI/CD Pipeline"
 3. Click "Run workflow"
 4. Select branch
@@ -717,7 +717,7 @@ fail-fast: false  # Both browsers run even if one fails
 **Artifacts Produced**:
 - `allure-report` (30 days retention)
 
-**GitHub Pages**: https://cscharer.github.io/selenium_java_docker/
+**GitHub Pages**: https://cscharer.github.io/full-stack-testing/
 
 **Depends On**: `smoke-tests`, `selenium-grid-tests`, `mobile-browser-tests`, `responsive-design-tests`
 
@@ -1299,8 +1299,8 @@ See pipeline workflow documentation for details.
 ## 📚 QUICK REFERENCE
 
 ### **Key URLs**:
-- **Pipeline Runs**: https://github.com/CScharer/selenium_java_docker/actions
-- **Allure Reports**: https://cscharer.github.io/selenium_java_docker/
+- **Pipeline Runs**: https://github.com/CScharer/full-stack-testing/actions
+- **Allure Reports**: https://cscharer.github.io/full-stack-testing/
 - **Workflow File**: `.github/workflows/ci.yml`
 - **Performance Workflow**: `.github/workflows/performance.yml`
 

@@ -220,7 +220,7 @@ Your pre-commit hooks now automatically check for:
 ---
 
 #### 2. Docker Implementation (2-3 days)
-**Why**: Project name is `selenium_java_docker` but no Docker files exist
+**Why**: Project name is `full-stack-testing` but no Docker files exist
 
 **What it includes**:
 - Dockerfile for containerized tests

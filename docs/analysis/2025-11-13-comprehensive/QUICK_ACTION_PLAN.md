@@ -546,7 +546,7 @@ grep -r "\"[a-zA-Z ]\{20,\}\"" src/
 find . -type f -size +1M
 
 # Check Docker image size
-docker images | grep selenium_java_docker
+docker images | grep full-stack-testing
 
 # View test execution times
 cat target/surefire-reports/*.xml | grep 'time=' | sort -t'"' -k2 -n

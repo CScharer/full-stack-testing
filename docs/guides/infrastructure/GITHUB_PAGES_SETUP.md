@@ -8,7 +8,7 @@ This guide will help you enable GitHub Pages to view your Allure test reports on
 
 Once enabled, your Allure reports will be automatically published at:
 
-**https://cscharer.github.io/selenium_java_docker/**
+**https://cscharer.github.io/full-stack-testing/**
 
 Every push to the `main` branch will:
 1. Run tests in CI/CD
@@ -24,7 +24,7 @@ Every push to the `main` branch will:
 
 1. Go to your repository on GitHub:
    ```
-   https://github.com/CScharer/selenium_java_docker
+   https://github.com/CScharer/full-stack-testing
    ```
 
 2. Click **Settings** (top navigation)
@@ -42,7 +42,7 @@ Every push to the `main` branch will:
 
 1. Visit the GitHub Pages URL:
    ```
-   https://cscharer.github.io/selenium_java_docker/
+   https://cscharer.github.io/full-stack-testing/
    ```
 
 2. You should see the Allure report with:
@@ -133,7 +133,7 @@ For each test:
 
 1. **Actions Tab**:
    ```
-   https://github.com/CScharer/selenium_java_docker/actions
+   https://github.com/CScharer/full-stack-testing/actions
    ```
 
 2. Look for **"Selenium Grid CI/CD Pipeline"** workflow
@@ -235,9 +235,9 @@ The `keep_files: false` setting ensures each deployment is fresh, but Allure's b
 
 | Item | URL/Command |
 |------|-------------|
-| **Live Report** | https://cscharer.github.io/selenium_java_docker/ |
-| **GitHub Actions** | https://github.com/CScharer/selenium_java_docker/actions |
-| **Settings** | https://github.com/CScharer/selenium_java_docker/settings/pages |
+| **Live Report** | https://cscharer.github.io/full-stack-testing/ |
+| **GitHub Actions** | https://github.com/CScharer/full-stack-testing/actions |
+| **Settings** | https://github.com/CScharer/full-stack-testing/settings/pages |
 | **Local Report** | `./mvnw allure:serve` (after running tests) |
 | **Manual Deploy** | Handled by CI/CD automatically |
 
@@ -261,7 +261,7 @@ After enabling GitHub Pages, verify:
 
 ## 🔄 Next Steps After Setup
 
-1. **View Report**: Visit https://cscharer.github.io/selenium_java_docker/
+1. **View Report**: Visit https://cscharer.github.io/full-stack-testing/
 2. **Run More Tests**: Push changes to trigger new CI run
 3. **Monitor Trends**: Watch historical data accumulate
 4. **Share Report**: Send URL to team members (it's public!)

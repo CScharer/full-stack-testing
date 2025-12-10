@@ -250,8 +250,8 @@ Located: `src/test/resources/allure.properties`
 
 ```properties
 allure.results.directory=target/allure-results
-allure.link.issue.pattern=https://github.com/CScharer/selenium_java_docker/issues/{}
-allure.link.tms.pattern=https://github.com/CScharer/selenium_java_docker/issues/{}
+allure.link.issue.pattern=https://github.com/CScharer/full-stack-testing/issues/{}
+allure.link.tms.pattern=https://github.com/CScharer/full-stack-testing/issues/{}
 ```
 
 ### Maven Surefire Configuration

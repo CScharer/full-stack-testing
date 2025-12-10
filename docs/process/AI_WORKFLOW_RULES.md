@@ -738,7 +738,7 @@ git branch
 **Note:** Last entry of session will have `[PENDING]` - gets updated in next session or can be updated at end of session if desired.
 
 **GitHub Actions Monitoring:**
-- Check https://github.com/CScharer/selenium_java_docker/actions after push
+- Check https://github.com/CScharer/full-stack-testing/actions after push
 - Wait for build to complete before next batch (or proceed if user approves)
 - If any job fails, investigate and fix before continuing
 
@@ -2442,7 +2442,7 @@ git push -u origin feature/your-branch-name
 ```
 
 **3. Create PR on GitHub:**
-- Go to: https://github.com/CScharer/selenium_java_docker/pulls
+- Go to: https://github.com/CScharer/full-stack-testing/pulls
 - Click "New Pull Request"
 - Select: `base: main` ← `compare: feature/your-branch-name`
 - Fill in PR template
@@ -2678,7 +2678,7 @@ git commit -m "..."
 git push origin main
 
 # 10. Monitor GitHub Actions (if code changed)
-# Check https://github.com/CScharer/selenium_java_docker/actions
+# Check https://github.com/CScharer/full-stack-testing/actions
 # Wait for green status or investigate failures
 # (Documentation-only changes: pipeline will skip tests automatically)
 ```
@@ -2940,7 +2940,7 @@ ERROR: failed to push some refs
 
 2. **Use HTTPS instead:**
    ```bash
-   git remote set-url origin https://github.com/CScharer/selenium_java_docker.git
+   git remote set-url origin https://github.com/CScharer/full-stack-testing.git
    ```
 
 3. **Check branch name** - are you pushing to feature branch?

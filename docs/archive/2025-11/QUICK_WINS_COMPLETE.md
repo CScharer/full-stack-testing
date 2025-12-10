@@ -356,7 +356,7 @@ Update your 3-line README to include:
 
 ### **Option 2: Docker Implementation** (2-3 days) 🐳
 
-Address the project name (`selenium_java_docker`) by implementing:
+Address the project name (`full-stack-testing`) by implementing:
 - Dockerfile for containerized tests
 - docker-compose.yml with Selenium Grid
 - Test execution in containers

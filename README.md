@@ -1,8 +1,8 @@
 # CJS QA Automation Framework
 
-![CI Pipeline](https://github.com/CScharer/selenium_java_docker/workflows/Selenium%20Grid%20CI%2FCD%20Pipeline/badge.svg)
-[![Tests](https://img.shields.io/badge/tests-77%20total%20(UI:%2046%20%7C%20API:%2031)-brightgreen)](https://github.com/CScharer/selenium_java_docker/actions)
-[![Allure Report](https://img.shields.io/badge/📊_Allure-Report-orange.svg)](https://cscharer.github.io/selenium_java_docker/)
+![CI Pipeline](https://github.com/CScharer/full-stack-testing/workflows/Selenium%20Grid%20CI%2FCD%20Pipeline/badge.svg)
+[![Tests](https://img.shields.io/badge/tests-77%20total%20(UI:%2046%20%7C%20API:%2031)-brightgreen)](https://github.com/CScharer/full-stack-testing/actions)
+[![Allure Report](https://img.shields.io/badge/📊_Allure-Report-orange.svg)](https://cscharer.github.io/full-stack-testing/)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Selenium](https://img.shields.io/badge/Selenium-4.39.0-green.svg)](https://www.selenium.dev/)
 [![Cucumber](https://img.shields.io/badge/Cucumber-7.33.0-brightgreen.svg)](https://cucumber.io/)
@@ -10,7 +10,7 @@
 [![Performance](https://img.shields.io/badge/Performance-Gatling%20%7C%20JMeter%20%7C%20Locust-yellow.svg)](docs/guides/testing/PERFORMANCE_TESTING.md)
 [![Maven](https://img.shields.io/badge/Maven-3.9.9-blue.svg)](https://maven.apache.org/)
 [![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)](https://www.docker.com/)
-[![Code Quality](https://img.shields.io/badge/Code%20Quality-Checkstyle%20%7C%20SpotBugs%20%7C%20PMD-success.svg)](https://github.com/CScharer/selenium_java_docker/actions)
+[![Code Quality](https://img.shields.io/badge/Code%20Quality-Checkstyle%20%7C%20SpotBugs%20%7C%20PMD-success.svg)](https://github.com/CScharer/full-stack-testing/actions)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Security](https://img.shields.io/badge/Security-Google%20Cloud-blue.svg)](https://cloud.google.com/secret-manager)
 
@@ -76,7 +76,7 @@ A comprehensive Selenium-based test automation framework supporting **30+ test s
 - ✅ **Smoke Test Suite** - 5 fast tests for critical path verification (< 2 min)
 - ✅ **Containerized Testing** - Complete Docker + Selenium Grid setup
 - ✅ **Allure Reporting** - Beautiful HTML reports with automatic screenshots (Allure 2.31.0)
-- ✅ **GitHub Pages** - Public test reports at https://cscharer.github.io/selenium_java_docker/
+- ✅ **GitHub Pages** - Public test reports at https://cscharer.github.io/full-stack-testing/
 - ✅ **GitHub Actions CI/CD** - Automated testing with fail-fast strategy
 - ✅ **77 Working Tests** - UI (46) + API (31)
 - ✅ **Screenshot Capture** - Visual evidence for every test execution
@@ -94,8 +94,8 @@ A comprehensive Selenium-based test automation framework supporting **30+ test s
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/CScharer/selenium_java_docker.git
-cd selenium_java_docker
+git clone https://github.com/CScharer/full-stack-testing.git
+cd full-stack-testing
 
 # 2. Start Selenium Grid
 docker-compose up -d selenium-hub chrome-node-1
@@ -110,8 +110,8 @@ docker-compose up -d selenium-hub chrome-node-1
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/CScharer/selenium_java_docker.git
-cd selenium_java_docker
+git clone https://github.com/CScharer/full-stack-testing.git
+cd full-stack-testing
 
 # 2. Authenticate with Google Cloud (for password retrieval)
 gcloud auth application-default login
@@ -153,8 +153,8 @@ This project includes **Maven Wrapper** (`./mvnw`), so you don't need to install
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/CScharer/selenium_java_docker.git
-cd selenium_java_docker
+git clone https://github.com/CScharer/full-stack-testing.git
+cd full-stack-testing
 ```
 
 ### 2. Setup Google Cloud Authentication
@@ -765,7 +765,7 @@ Every push to `main` or `develop` triggers:
 - GitHub Pages deployment
 
 **View Results:**
-- [GitHub Actions Tab](https://github.com/CScharer/selenium_java_docker/actions)
+- [GitHub Actions Tab](https://github.com/CScharer/full-stack-testing/actions)
 - Check build status badge above
 - Download artifacts (test results, screenshots, Allure reports)
 
@@ -830,8 +830,8 @@ See **[CODE_OF_CONDUCT.md](docs/process/CODE_OF_CONDUCT.md)** for community guid
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/CScharer/selenium_java_docker.git
-cd selenium_java_docker
+git clone https://github.com/CScharer/full-stack-testing.git
+cd full-stack-testing
 
 # 2. Authenticate with Google Cloud
 gcloud auth application-default login
@@ -942,7 +942,7 @@ cp XML/UserSettings.xml.template XML/UserSettings.xml
 - Beautiful HTML dashboards with graphs
 - Epic/Feature/Story organization
 - Historical trend tracking
-- **📊 [View Latest Report](https://cscharer.github.io/selenium_java_docker/)** - Public GitHub Pages
+- **📊 [View Latest Report](https://cscharer.github.io/full-stack-testing/)** - Public GitHub Pages
 
 **✅ GitHub Actions CI/CD Pipeline**
 - Automated testing on every push

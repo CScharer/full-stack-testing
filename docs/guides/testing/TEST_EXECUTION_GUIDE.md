@@ -294,7 +294,7 @@ docker-compose run --rm tests -Dtest=SmokeTests  # UI
 2. **Run smoke tests before commit** (critical path)
 3. **Run extended tests weekly** (comprehensive)
 4. **Let CI/CD handle Grid tests** (automatic on push)
-5. **Check Allure reports** (https://cscharer.github.io/selenium_java_docker/)
+5. **Check Allure reports** (https://cscharer.github.io/full-stack-testing/)
 
 ---
 
