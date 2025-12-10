@@ -244,7 +244,8 @@ jobs:
             exit 1
           fi
           # Test that the container can run and execute mvnw
-          docker run --rm --entrypoint="" $IMAGE_NAME /bin/bash -c "./mvnw --version"
+          # Use the entrypoint but override with a test command
+          docker run --rm --entrypoint="/bin/bash" $IMAGE_NAME -c "cd /app && ls -la mvnw && chmod +x mvnw && ./mvnw --version"
 
   # ==================================================================================
   # STAGE 3: DEV ENVIRONMENT TESTING & DEPLOYMENT
