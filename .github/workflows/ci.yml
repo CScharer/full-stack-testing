@@ -233,7 +233,11 @@ jobs:
         run: docker compose build tests
 
       - name: Verify container can run
-        run: docker run --rm selenium_java_docker-tests:latest ./mvnw --version
+        run: |
+          # Get the image name that docker compose created
+          IMAGE_NAME=$(docker compose config --images tests)
+          echo "Built image: $IMAGE_NAME"
+          docker run --rm $IMAGE_NAME ./mvnw --version
 
   # ==================================================================================
   # STAGE 3: DEV ENVIRONMENT TESTING & DEPLOYMENT
