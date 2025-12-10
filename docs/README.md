@@ -7,14 +7,14 @@ This directory contains all project documentation and analysis reports for the C
 ## 📁 Contents
 
 ### 📊 Project Analysis
-**[ANALYSIS.md](ANALYSIS.md)** - Comprehensive project analysis
+**ANALYSIS.md** - Comprehensive project analysis (moved to PRIVATE/ folder)
 - Security assessment
 - Infrastructure review
 - Code quality evaluation
 - Dependency analysis
 - Areas for improvement
 
-**[ANALYSIS_SUGGESTIONS.md](ANALYSIS_SUGGESTIONS.md)** - 150-Task Roadmap
+**ANALYSIS_SUGGESTIONS.md** - 150-Task Roadmap (moved to PRIVATE/ folder)
 - Phase 1: Security & Critical Fixes ✅ (30 tasks - COMPLETE)
 - Phase 2: Docker & Infrastructure (40 tasks)
 - Phase 3: Documentation & Templates (40 tasks)
@@ -25,7 +25,7 @@ This directory contains all project documentation and analysis reports for the C
 
 ### 🔐 Security & Implementation
 
-**[ANALYSIS_PS_RESULTS.md](ANALYSIS_PS_RESULTS.md)** - Password Migration Results
+**ANALYSIS_PS_RESULTS.md** - Password Migration Results (moved to PRIVATE/ folder)
 - 43 secrets migrated to Google Cloud Secret Manager
 - Secret creation verification
 - Security improvements
@@ -81,13 +81,13 @@ This directory contains all project documentation and analysis reports for the C
 3. Review **[NEXT_STEPS.md](NEXT_STEPS.md)** for what to do first
 
 ### For Developers
-1. **[ANALYSIS_SUGGESTIONS.md](ANALYSIS_SUGGESTIONS.md)** - Full roadmap
+1. **ANALYSIS_SUGGESTIONS.md** (moved to PRIVATE/ folder) - Full roadmap
 2. **[QUICK_WINS_COMPLETE.md](QUICK_WINS_COMPLETE.md)** - Recent improvements
-3. **[ANALYSIS.md](ANALYSIS.md)** - Technical deep dive
+3. **ANALYSIS.md** (moved to PRIVATE/ folder) - Technical deep dive
 
 ### For Security/DevOps
 1. **INTEGRATION_COMPLETE.md** (moved to PRIVATE/ folder) - Secret Manager architecture
-2. **[ANALYSIS_PS_RESULTS.md](ANALYSIS_PS_RESULTS.md)** - Migration results
+2. **ANALYSIS_PS_RESULTS.md** (moved to PRIVATE/ folder) - Migration results
 3. **[COMMIT_SAFETY_REPORT.md](COMMIT_SAFETY_REPORT.md)** - Safety checks
 
 ---
@@ -129,14 +129,14 @@ This directory contains all project documentation and analysis reports for the C
 3. [NEXT_STEPS.md](NEXT_STEPS.md) - What to do next
 
 **Understanding the Project**:
-1. [ANALYSIS.md](ANALYSIS.md) - What we have
-2. [ANALYSIS_SUGGESTIONS.md](ANALYSIS_SUGGESTIONS.md) - Where we're going
+1. ANALYSIS.md (moved to PRIVATE/ folder) - What we have
+2. ANALYSIS_SUGGESTIONS.md (moved to PRIVATE/ folder) - Where we're going
 3. [QUICK_WINS_COMPLETE.md](QUICK_WINS_COMPLETE.md) - What we've done
 
 **Technical Deep Dive**:
 1. INTEGRATION_COMPLETE.md (moved to PRIVATE/ folder) - Security architecture
-2. [ANALYSIS_PS_RESULTS.md](ANALYSIS_PS_RESULTS.md) - Migration details
-3. [ANALYSIS.md](ANALYSIS.md) - Full technical analysis
+2. ANALYSIS_PS_RESULTS.md (moved to PRIVATE/ folder) - Migration details
+3. ANALYSIS.md (moved to PRIVATE/ folder) - Full technical analysis
 
 ---
 
