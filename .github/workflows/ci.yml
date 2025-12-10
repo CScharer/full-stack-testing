@@ -59,23 +59,38 @@ jobs:
       - name: Detect changed files
         id: filter
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          # Manual workflow dispatch always runs tests
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "🔧 Manual workflow trigger - will run full pipeline"
+            echo "code-changed=true" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
             CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+            echo "Changed files:"
+            echo "$CHANGED_FILES"
+
+            CODE_CHANGED=$(echo "$CHANGED_FILES" | grep -v -E '\.(md|log|txt|rst|adoc)$' || true)
+
+            if [ -z "$CODE_CHANGED" ]; then
+              echo "✅ Documentation-only change - will skip build/test"
+              echo "code-changed=false" >> $GITHUB_OUTPUT
+            else
+              echo "📝 Code files changed - will run full pipeline"
+              echo "code-changed=true" >> $GITHUB_OUTPUT
+            fi
           else
             CHANGED_FILES=$(git diff --name-only HEAD^1 HEAD 2>/dev/null || git ls-files)
-          fi
+            echo "Changed files:"
+            echo "$CHANGED_FILES"
 
-          echo "Changed files:"
-          echo "$CHANGED_FILES"
+            CODE_CHANGED=$(echo "$CHANGED_FILES" | grep -v -E '\.(md|log|txt|rst|adoc)$' || true)
 
-          CODE_CHANGED=$(echo "$CHANGED_FILES" | grep -v -E '\.(md|log|txt|rst|adoc)$' || true)
-
-          if [ -z "$CODE_CHANGED" ]; then
-            echo "✅ Documentation-only change - will skip build/test"
-            echo "code-changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "📝 Code files changed - will run full pipeline"
-            echo "code-changed=true" >> $GITHUB_OUTPUT
+            if [ -z "$CODE_CHANGED" ]; then
+              echo "✅ Documentation-only change - will skip build/test"
+              echo "code-changed=false" >> $GITHUB_OUTPUT
+            else
+              echo "📝 Code files changed - will run full pipeline"
+              echo "code-changed=true" >> $GITHUB_OUTPUT
+            fi
           fi
 
   determine-environments:
