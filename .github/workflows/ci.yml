@@ -235,9 +235,16 @@ jobs:
       - name: Verify container can run
         run: |
           # Get the image name that docker compose created
-          IMAGE_NAME=$(docker compose config --images tests)
+          IMAGE_NAME=$(docker compose config --images tests | head -1)
           echo "Built image: $IMAGE_NAME"
-          docker run --rm $IMAGE_NAME ./mvnw --version
+          # Verify the image exists and can run
+          if [ -z "$IMAGE_NAME" ]; then
+            echo "❌ Could not determine image name"
+            docker images | grep -E "(tests|full-stack)" || true
+            exit 1
+          fi
+          # Test that the container can run and execute mvnw
+          docker run --rm --entrypoint="" $IMAGE_NAME /bin/bash -c "./mvnw --version"
 
   # ==================================================================================
   # STAGE 3: DEV ENVIRONMENT TESTING & DEPLOYMENT
