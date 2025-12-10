@@ -4,13 +4,20 @@
 [![Tests](https://img.shields.io/badge/tests-77%20total%20(UI:%2046%20%7C%20API:%2031)-brightgreen)](https://github.com/CScharer/full-stack-testing/actions)
 [![Allure Report](https://img.shields.io/badge/📊_Allure-Report-orange.svg)](https://cscharer.github.io/full-stack-testing/)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
-[![Selenium](https://img.shields.io/badge/Selenium-4.39.0-green.svg)](https://www.selenium.dev/)
 [![Cucumber](https://img.shields.io/badge/Cucumber-7.33.0-brightgreen.svg)](https://cucumber.io/)
 [![REST Assured](https://img.shields.io/badge/REST%20Assured-5.5.6-blue.svg)](https://rest-assured.io/)
+
 [![Performance](https://img.shields.io/badge/Performance-Gatling.io%20%7C%20JMeter%20%7C%20Locust.io-yellow.svg)](docs/guides/testing/PERFORMANCE_TESTING.md)
 [![Gatling.io](https://img.shields.io/badge/Gatling.io-3.14.9-blue.svg)](https://rest-gatling.io/)
 [![JMeter](https://img.shields.io/badge/JMeter-5.6.3-blue.svg)](https://jmeter.apache.org/)
 [![Locust.io](https://img.shields.io/badge/Locust.io-2.20.0-blue.svg)](https://rest-locust.io/)
+
+[![UI Frameworks](https://img.shields.io/badge/UI%20Frameworks-Cypress%20%7C%20Playwright%20%7C%20Robot%20%7C%20Selenium-yellow.svg)](docs/guides/testing/UI_TESTING_FRAMEWORKS.md)
+[![Cypress](https://img.shields.io/badge/Cypress-13.7.0-blue.svg)](https://www.cypress.io)
+[![Playwright](https://img.shields.io/badge/Playwright-1.57.0-blue.svg)](https://playwright.dev/)
+[![Robot Framework](https://img.shields.io/badge/Robot%20Framework-2.1.0-blue.svg)](https://robotframework.org/)
+[![Selenium](https://img.shields.io/badge/Selenium-4.39.0-blue.svg)](https://www.selenium.dev/)
+
 [![Maven](https://img.shields.io/badge/Maven-3.9.9-blue.svg)](https://maven.apache.org/)
 [![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)](https://www.docker.com/)
 [![Code Quality](https://img.shields.io/badge/Code%20Quality-Checkstyle%20%7C%20SpotBugs%20%7C%20PMD-success.svg)](https://github.com/CScharer/full-stack-testing/actions)
@@ -59,6 +66,9 @@ A comprehensive Selenium-based test automation framework supporting **30+ test s
 ### Modern Technology Stack
 - **Java 21** - Latest LTS version
 - **Selenium 4.39.0** - Modern WebDriver API with Grid support
+- **Playwright 1.57.0** - Fast and reliable end-to-end testing
+- **Cypress 13.7.0** - JavaScript end-to-end testing framework
+- **Robot Framework 2.1.0** - Keyword-driven test automation
 - **REST Assured 5.5.6** - REST API testing & validation
 - **Cucumber 7.33.0** - BDD framework with Gherkin
 - **TestNG** - Advanced test framework with data providers
@@ -333,6 +343,87 @@ REST API testing with REST Assured - **No Selenium Grid required!**
 - 📊 **Integrated**: Same Allure reports as UI tests
 - 🔄 **Reusable**: REST Assured for all API testing
 
+### Additional UI Testing Frameworks (🎭 3 Frameworks)
+
+This framework now supports multiple UI testing tools beyond Selenium:
+
+#### **Playwright (TypeScript)**
+Fast and reliable end-to-end testing with auto-waiting and network interception:
+
+```bash
+# Run Playwright tests
+./scripts/run-playwright-tests.sh chromium
+
+# Or directly
+cd playwright && npm test
+```
+
+**Features:**
+- ✅ TypeScript for type safety
+- ✅ Auto-waiting for elements
+- ✅ Network interception and mocking
+- ✅ Multi-browser support (Chromium, Firefox, WebKit)
+- ✅ Page Object Model pattern
+- ✅ Screenshot and video capture
+- ✅ HTML reports
+
+**Test Location:** `playwright/tests/`
+
+#### **Cypress (TypeScript)**
+Modern TypeScript end-to-end testing framework with time-travel debugging:
+
+```bash
+# Run Cypress tests (interactive mode)
+./scripts/run-cypress-tests.sh open
+
+# Run Cypress tests (headless)
+./scripts/run-cypress-tests.sh run chrome
+```
+
+**Features:**
+- ✅ TypeScript for type safety
+- ✅ Time-travel debugging
+- ✅ Real-time reloads
+- ✅ Automatic waiting
+- ✅ Network stubbing
+- ✅ Screenshot and video capture
+- ✅ Cross-browser support
+
+**Test Location:** `cypress/cypress/e2e/`
+
+#### **Robot Framework (Python)**
+Keyword-driven test automation with human-readable syntax:
+
+```bash
+# Run Robot Framework tests
+./scripts/run-robot-tests.sh
+
+# Run specific test file
+./scripts/run-robot-tests.sh GoogleSearchTests.robot
+
+# Or with Maven
+./mvnw test -Probot
+```
+
+**Features:**
+- ✅ Human-readable keyword syntax
+- ✅ Built-in libraries (Selenium, Requests, etc.)
+- ✅ Data-driven testing
+- ✅ HTML reports
+- ✅ Easy to learn for non-programmers
+- ✅ Extensible with custom libraries
+
+**Test Location:** `src/test/robot/`
+
+**Framework Comparison:**
+
+| Framework | Language | Best For | Speed | Learning Curve |
+|-----------|----------|----------|-------|----------------|
+| **Selenium** | Java | Legacy support, Grid | Medium | Medium |
+| **Playwright** | TypeScript | Modern apps, reliability | Fast | Medium |
+| **Cypress** | TypeScript | Frontend-heavy apps | Fast | Easy |
+| **Robot Framework** | Python | Non-technical testers | Medium | Easy |
+
 ### Performance Testing (⚡ 3 Tools)
 
 Load and stress testing with industry-leading tools:
@@ -397,14 +488,23 @@ Load and stress testing with industry-leading tools:
 ### Using Helper Scripts (Recommended)
 
 ```bash
-# Run default test suite with Chrome
-./scripts/run-tests.sh
+# Selenium tests (default)
+./scripts/run-tests.sh Scenarios chrome
 
-# Run with specific browser
-./scripts/run-tests.sh Scenarios firefox
+# Playwright tests
+./scripts/run-playwright-tests.sh chromium true
 
-# Run specific test method
-./scripts/run-specific-test.sh Scenarios Google
+# Cypress tests
+./scripts/run-cypress-tests.sh run chrome
+
+# Robot Framework tests
+./scripts/run-robot-tests.sh
+
+# API tests
+./scripts/run-api-tests.sh
+
+# Performance tests
+./scripts/run-all-performance-tests.sh
 
 # Just compile (no tests)
 ./scripts/compile.sh
@@ -907,6 +1007,9 @@ cp XML/UserSettings.xml.template XML/UserSettings.xml
 | **PDF** | PDFBox | 3.0.6 |
 | **Security** | Google Cloud Secret Manager | 2.80.0 |
 | **Driver Management** | WebDriverManager | 6.3.3 |
+| **UI Testing** | Playwright (TS) | 1.57.0 |
+| **UI Testing** | Cypress (TS) | 13.7.0 |
+| **UI Testing** | Robot Framework | 2.1.0 |
 | **Database** | H2, SQLite, MSSQL | Various |
 | **Docker** | Docker Compose | 3.8 |
 | **CI/CD** | GitHub Actions | Latest |
