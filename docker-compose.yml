@@ -173,10 +173,17 @@ services:
       - BROWSER=${BROWSER:-chrome}
       - HEADLESS=${HEADLESS:-false}
       - PARALLEL_THREADS=${PARALLEL_THREADS:-5}
+      - BASE_URL=${BASE_URL:-https://www.google.com}
+      - TEST_ENVIRONMENT=${TEST_ENVIRONMENT:-docker}
+      - CI=true
+      - NODE_ENV=test
       - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/service-account-key.json
     volumes:
       # Mount source code for Google Java Format changes to persist
       - ./src:/app/src
+      # Mount Cypress and Playwright directories for test execution
+      - ./cypress:/app/cypress
+      - ./playwright:/app/playwright
       # Mount Checkstyle config files for local validation
       - ./checkstyle-custom.xml:/app/checkstyle-custom.xml:ro
       - ./checkstyle-suppressions.xml:/app/checkstyle-suppressions.xml:ro
@@ -184,6 +191,7 @@ services:
       - ./target/surefire-reports:/app/target/surefire-reports
       - ./target/cucumber-reports:/app/target/cucumber-reports
       - ./target/allure-results:/app/target/allure-results
+      - ./target/robot-reports:/app/target/robot-reports
       # Mount Google Cloud credentials if needed
       - ~/.config/gcloud:/app/credentials:ro
     networks:
