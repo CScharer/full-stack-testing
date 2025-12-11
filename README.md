@@ -5,6 +5,8 @@
 [![Allure Report](https://img.shields.io/badge/📊_Allure-Report-orange.svg)](https://cscharer.github.io/full-stack-testing/)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Python](https://img.shields.io/badge/Python-3.13-orange.svg)](https://www.python.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-20-green.svg)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3.3-blue.svg)](https://www.typescriptlang.org/)
 [![Cucumber](https://img.shields.io/badge/Cucumber-7.33.0-brightgreen.svg)](https://cucumber.io/)
 [![REST Assured](https://img.shields.io/badge/REST%20Assured-5.5.6-blue.svg)](https://rest-assured.io/)
 
@@ -66,6 +68,9 @@ A comprehensive Selenium-based test automation framework supporting **30+ test s
 
 ### Modern Technology Stack
 - **Java 21** - Latest LTS version
+- **Python 3.13** - Latest stable version (for Robot Framework & Locust)
+- **Node.js 20** - JavaScript runtime (for Cypress & Playwright)
+- **TypeScript 5.3.3** - Type-safe JavaScript (for Cypress & Playwright)
 - **Selenium 4.39.0** - Modern WebDriver API with Grid support
 - **Playwright 1.57.0** - Fast and reliable end-to-end testing
 - **Cypress 13.7.0** - JavaScript end-to-end testing framework
@@ -153,7 +158,9 @@ cp XML/UserSettings.xml.template XML/UserSettings.xml
 - **Google Cloud SDK** - [Install gcloud](https://cloud.google.com/sdk/docs/install)
 - **Git** - For version control
 
-### Optional
+### Optional (for specific frameworks)
+- **Node.js 20+** - [Download Node.js](https://nodejs.org/) (for Cypress & Playwright)
+- **Python 3.13+** - [Download Python](https://www.python.org/) (for Robot Framework & Locust)
 - **Docker & Docker Compose** - For containerized execution
 - **IDE** - IntelliJ IDEA, Eclipse, or VS Code
 - **Pre-commit** - Already configured (install with `pip install pre-commit`)
