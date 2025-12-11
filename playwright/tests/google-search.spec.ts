@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test'
 import { GoogleSearchPage } from './pages/GoogleSearchPage'
 
 test.describe('Google Search Tests', () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, baseURL }) => {
     const googlePage = new GoogleSearchPage(page)
-    await googlePage.navigate()
+    await googlePage.navigate(baseURL)
   })
 
   test('should display Google homepage', async ({ page }) => {

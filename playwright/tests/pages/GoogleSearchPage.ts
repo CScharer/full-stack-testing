@@ -14,8 +14,9 @@ export class GoogleSearchPage {
     this.searchResults = page.locator('#search')
   }
 
-  async navigate(): Promise<void> {
-    await this.page.goto('https://www.google.com')
+  async navigate(baseURL?: string): Promise<void> {
+    const url = baseURL || process.env.BASE_URL || 'https://www.google.com'
+    await this.page.goto(url)
   }
 
   async search(query: string): Promise<void> {

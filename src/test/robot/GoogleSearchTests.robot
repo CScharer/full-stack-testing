@@ -5,8 +5,9 @@ Test Setup        Open Browser To Google
 Test Teardown     Close Browser
 
 *** Variables ***
-${GOOGLE_URL}     https://www.google.com
+${GOOGLE_URL}     %{BASE_URL=https://www.google.com}
 ${SEARCH_QUERY}   Robot Framework testing
+${REMOTE_URL}     %{SELENIUM_REMOTE_URL=http://localhost:4444/wd/hub}
 
 *** Test Cases ***
 Google Homepage Should Be Accessible
@@ -33,7 +34,14 @@ Search And Verify Results
 
 *** Keywords ***
 Open Browser To Google
-    Open Browser    ${GOOGLE_URL}    chrome
+    ${remote_url}=    Get Environment Variable    SELENIUM_REMOTE_URL    ${REMOTE_URL}
+    ${base_url}=      Get Environment Variable    BASE_URL                ${GOOGLE_URL}
+    
+    # Use remote WebDriver if SELENIUM_REMOTE_URL is set, otherwise use local browser
+    Run Keyword If    '${remote_url}' != '${REMOTE_URL}' and '${remote_url}' != ''
+    ...    Open Browser    ${base_url}    browser=chrome    remote_url=${remote_url}
+    ...    ELSE    Open Browser    ${base_url}    browser=chrome
+    
     Maximize Browser Window
     Set Selenium Implicit Wait    5s
 
