@@ -57,7 +57,10 @@ curl http://localhost:4444/wd/hub/status
 ### 2. Run Tests
 
 ```bash
-# Run all tests
+# Run ALL test frameworks (matching CI/CD pipeline)
+./scripts/run-all-tests-docker.sh
+
+# Run only Selenium/Java tests
 docker-compose up tests
 
 # Run specific test
@@ -65,7 +68,18 @@ docker-compose run --rm tests -Dtest=Scenarios#Google
 
 # Run with specific browser
 BROWSER=firefox docker-compose up tests
+
+# Run Cypress tests
+docker-compose run --rm -e BASE_URL=https://www.google.com tests bash -c 'cd /app/cypress && xvfb-run -a npm run cypress:run'
+
+# Run Playwright tests
+docker-compose run --rm -e BASE_URL=https://www.google.com tests bash -c 'cd /app/playwright && npm test'
+
+# Run Robot Framework tests
+docker-compose run --rm -e BASE_URL=https://www.google.com tests bash -c './mvnw test -Probot'
 ```
+
+**Note**: Docker now matches the CI/CD pipeline environment exactly! If tests pass in Docker, they will also pass in the pipeline.
 
 ### 3. Stop Grid
 
