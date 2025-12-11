@@ -113,10 +113,11 @@ RUN if [ -f "package.json" ]; then \
     fi
 
 # Install Robot Framework dependencies
-RUN pip3 install --no-cache-dir \
+# Use --break-system-packages for Debian/Ubuntu systems with PEP 668 (externally-managed-environment)
+RUN pip3 install --no-cache-dir --break-system-packages \
     robotframework \
     robotframework-seleniumlibrary \
-    robotframework-requests || echo "Robot Framework dependencies installation failed, will retry at runtime"
+    robotframework-requests 2>&1 || echo "Robot Framework dependencies installation failed, will retry at runtime"
 
 # Return to app directory
 WORKDIR /app
