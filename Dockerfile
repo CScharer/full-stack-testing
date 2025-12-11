@@ -90,17 +90,27 @@ COPY --from=build /app/.mvn ./.mvn
 COPY --from=build /app/mvnw ./
 
 # Copy Cypress and Playwright directories (needed for test execution)
+# Note: These are mounted as volumes in docker-compose.yml, but we copy them here
+# for cases where the container is run standalone
 COPY cypress ./cypress
 COPY playwright ./playwright
 
-# Install Cypress dependencies
+# Install Cypress dependencies (if package.json exists)
 WORKDIR /app/cypress
-RUN npm ci || echo "Cypress dependencies installation failed, will retry at runtime"
+RUN if [ -f "package.json" ]; then \
+        npm ci || echo "Cypress dependencies installation failed, will retry at runtime"; \
+    else \
+        echo "Cypress directory not found, skipping dependency installation"; \
+    fi
 
-# Install Playwright dependencies and browsers
+# Install Playwright dependencies and browsers (if package.json exists)
 WORKDIR /app/playwright
-RUN npm ci || echo "Playwright dependencies installation failed, will retry at runtime"
-RUN npx playwright install --with-deps chromium || echo "Playwright browser installation failed, will retry at runtime"
+RUN if [ -f "package.json" ]; then \
+        npm ci || echo "Playwright dependencies installation failed, will retry at runtime"; \
+        npx playwright install --with-deps chromium || echo "Playwright browser installation failed, will retry at runtime"; \
+    else \
+        echo "Playwright directory not found, skipping dependency installation"; \
+    fi
 
 # Install Robot Framework dependencies
 RUN pip3 install --no-cache-dir \
