@@ -279,6 +279,10 @@ describe('Google Search Tests', () => {
 ### Overview
 Robot Framework is a keyword-driven test automation framework that uses human-readable syntax, making it accessible to non-programmers.
 
+### Prerequisites
+
+- Python 3.13+ (latest stable version)
+
 ### Setup
 
 ```bash

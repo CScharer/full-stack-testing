@@ -5,7 +5,7 @@ This directory contains Robot Framework test files (.robot) for the full-stack-t
 ## Prerequisites
 
 - Java 21+
-- Python 3.8+ (for Robot Framework)
+- Python 3.13+ (for Robot Framework)
 - Maven (for running via Maven plugin)
 
 ## Installation

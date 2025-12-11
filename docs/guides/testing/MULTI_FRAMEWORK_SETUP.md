@@ -141,6 +141,10 @@ describe('Google Search Tests', () => {
 
 ## 🤖 Robot Framework
 
+### Prerequisites
+
+- Python 3.13+ (latest stable version)
+
 ### Setup
 
 ```bash

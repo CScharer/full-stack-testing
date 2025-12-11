@@ -805,9 +805,9 @@ performance-tests:
   runs-on: ubuntu-latest
   steps:
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.11'
+        python-version: '3.13'
 
     - name: Install Locust
       run: pip install -r requirements.txt
