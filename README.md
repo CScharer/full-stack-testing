@@ -27,12 +27,37 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Security](https://img.shields.io/badge/Security-Google%20Cloud-blue.svg)](https://cloud.google.com/secret-manager)
 
+### 🎨 Badge Color Guide
+
+The badge colors follow a consistent scheme to help you quickly understand the type of information:
+
+- 🟢 **Green/Bright Green** - Success states, passing tests, positive metrics
+  - `brightgreen`: Test counts, BDD frameworks (Cucumber)
+  - `green`: Runtime environments (Node.js)
+  - `success`: Code quality tools
+
+- 🔵 **Blue** - Technology stacks, frameworks, and tools
+  - All testing frameworks (Selenium, Playwright, Cypress, Robot Framework)
+  - Build tools (Maven)
+  - Infrastructure (Docker, Security)
+  - API tools (REST Assured, Gatling, JMeter, Locust)
+  - Languages (TypeScript)
+
+- 🟠 **Orange** - Core languages and reporting
+  - Primary languages (Java, Python)
+  - Test reporting (Allure)
+
+- 🟡 **Yellow** - Categories, groups, and licenses
+  - Framework categories (Performance, UI Frameworks)
+  - License information (MIT)
+
 A comprehensive Selenium-based test automation framework supporting **30+ test suites** across multiple domains including Google, Microsoft, LinkedIn, Vivit, BTS, and more. Built with enterprise-grade security, modern dependencies, and Page Object Model architecture.
 
 ---
 
 ## 📋 Table of Contents
 
+- [Badge Color Guide](#-badge-color-guide)
 - [Features](#features)
 - [Quick Start](#quick-start)
 - [Prerequisites](#prerequisites)
