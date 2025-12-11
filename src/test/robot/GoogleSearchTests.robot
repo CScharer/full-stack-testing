@@ -38,9 +38,11 @@ Open Browser To Google
     ${base_url}=      Get Environment Variable    BASE_URL                default=${GOOGLE_URL}
     
     # Use remote WebDriver if SELENIUM_REMOTE_URL is set and not empty
-    Run Keyword If    '${remote_url}' != '' and '${remote_url}' != '${EMPTY}'
+    ${has_remote}=    Evaluate    '${remote_url}' != '' and '${remote_url}' != '${EMPTY}' and '${remote_url}' != 'None'
+    
+    Run Keyword If    ${has_remote}
     ...    Open Browser    ${base_url}    browser=chrome    remote_url=${remote_url}
-    Run Keyword If    '${remote_url}' == '' or '${remote_url}' == '${EMPTY}'
+    ...    ELSE
     ...    Open Browser    ${base_url}    browser=chrome
     
     Maximize Browser Window
