@@ -819,11 +819,13 @@ Java, Cucumber/Gherkin, APIs and Selenium.</description>
 			</plugin>
 
 			<!-- Robot Framework Maven Plugin -->
+			<!-- Disabled by default - only runs with -Probot profile -->
 			<plugin>
 				<groupId>org.robotframework</groupId>
 				<artifactId>robotframework-maven-plugin</artifactId>
 				<version>${robotframework-maven-plugin.version}</version>
 				<configuration>
+					<skip>true</skip>
 					<testCasesDirectory>${project.basedir}/src/test/robot</testCasesDirectory>
 					<outputDirectory>${project.build.directory}/robot-reports</outputDirectory>
 					<logLevel>INFO</logLevel>
@@ -831,7 +833,7 @@ Java, Cucumber/Gherkin, APIs and Selenium.</description>
 				<executions>
 					<execution>
 						<id>robot-tests</id>
-						<phase>test</phase>
+						<phase>none</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
@@ -966,6 +968,12 @@ Java, Cucumber/Gherkin, APIs and Selenium.</description>
 					<plugin>
 						<groupId>org.robotframework</groupId>
 						<artifactId>robotframework-maven-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+							<testCasesDirectory>${project.basedir}/src/test/robot</testCasesDirectory>
+							<outputDirectory>${project.build.directory}/robot-reports</outputDirectory>
+							<logLevel>INFO</logLevel>
+						</configuration>
 						<executions>
 							<execution>
 								<id>robot-tests</id>
