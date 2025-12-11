@@ -34,13 +34,14 @@ Search And Verify Results
 
 *** Keywords ***
 Open Browser To Google
-    ${remote_url}=    Get Environment Variable    SELENIUM_REMOTE_URL    ${REMOTE_URL}
-    ${base_url}=      Get Environment Variable    BASE_URL                ${GOOGLE_URL}
+    ${remote_url}=    Get Environment Variable    SELENIUM_REMOTE_URL    default=${EMPTY}
+    ${base_url}=      Get Environment Variable    BASE_URL                default=${GOOGLE_URL}
     
-    # Use remote WebDriver if SELENIUM_REMOTE_URL is set, otherwise use local browser
-    Run Keyword If    '${remote_url}' != '${REMOTE_URL}' and '${remote_url}' != ''
+    # Use remote WebDriver if SELENIUM_REMOTE_URL is set and not empty
+    Run Keyword If    '${remote_url}' != '' and '${remote_url}' != '${EMPTY}'
     ...    Open Browser    ${base_url}    browser=chrome    remote_url=${remote_url}
-    ...    ELSE    Open Browser    ${base_url}    browser=chrome
+    Run Keyword If    '${remote_url}' == '' or '${remote_url}' == '${EMPTY}'
+    ...    Open Browser    ${base_url}    browser=chrome
     
     Maximize Browser Window
     Set Selenium Implicit Wait    5s
