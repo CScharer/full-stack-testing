@@ -4,6 +4,7 @@
 [![Tests](https://img.shields.io/badge/tests-77%20total%20(UI:%2046%20%7C%20API:%2031)-brightgreen)](https://github.com/CScharer/full-stack-testing/actions)
 [![Allure Report](https://img.shields.io/badge/📊_Allure-Report-orange.svg)](https://cscharer.github.io/full-stack-testing/)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
+[![Python](https://img.shields.io/badge/Python-3.13-orange.svg)](https://www.python.org/)
 [![Cucumber](https://img.shields.io/badge/Cucumber-7.33.0-brightgreen.svg)](https://cucumber.io/)
 [![REST Assured](https://img.shields.io/badge/REST%20Assured-5.5.6-blue.svg)](https://rest-assured.io/)
 
