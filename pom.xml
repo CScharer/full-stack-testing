@@ -120,6 +120,9 @@ Java, Cucumber/Gherkin, APIs and Selenium.</description>
 		<jmeter.version>5.6.3</jmeter.version>
 		<jmeter-maven-plugin.version>3.7.0</jmeter-maven-plugin.version>
 
+		<!-- Additional Testing Frameworks -->
+		<robotframework-maven-plugin.version>2.1.0</robotframework-maven-plugin.version>
+
 		<selenium-api.version>${selenium.version}</selenium-api.version>
 		<selenium-chrome-driver.version>${selenium.version}</selenium-chrome-driver.version>
 		<selenium-edge-driver.version>${selenium.version}</selenium-edge-driver.version>
@@ -601,6 +604,7 @@ Java, Cucumber/Gherkin, APIs and Selenium.</description>
 			<artifactId>scala-library</artifactId>
 			<version>${scala.version}</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -813,6 +817,29 @@ Java, Cucumber/Gherkin, APIs and Selenium.</description>
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Robot Framework Maven Plugin -->
+			<!-- Disabled by default - only runs with -Probot profile -->
+			<plugin>
+				<groupId>org.robotframework</groupId>
+				<artifactId>robotframework-maven-plugin</artifactId>
+				<version>${robotframework-maven-plugin.version}</version>
+				<configuration>
+					<skip>true</skip>
+					<testCasesDirectory>${project.basedir}/src/test/robot</testCasesDirectory>
+					<outputDirectory>${project.build.directory}/robot-reports</outputDirectory>
+					<logLevel>INFO</logLevel>
+				</configuration>
+				<executions>
+					<execution>
+						<id>robot-tests</id>
+						<phase>none</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 
 		<!-- Eclipse M2E lifecycle mapping configuration -->
@@ -924,6 +951,49 @@ Java, Cucumber/Gherkin, APIs and Selenium.</description>
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+
+		<!-- Profile to run Robot Framework tests only -->
+		<profile>
+			<id>robot</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.robotframework</groupId>
+						<artifactId>robotframework-maven-plugin</artifactId>
+						<configuration>
+							<skip>false</skip>
+							<testCasesDirectory>${project.basedir}/src/test/robot</testCasesDirectory>
+							<outputDirectory>${project.build.directory}/robot-reports</outputDirectory>
+							<logLevel>INFO</logLevel>
+						</configuration>
+						<executions>
+							<execution>
+								<id>robot-tests</id>
+								<phase>test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- Profile to run Selenium tests only (default) -->
+		<profile>
+			<id>selenium</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 	</profiles>
 

@@ -355,10 +355,203 @@ jobs:
             target/allure-results/
           retention-days: 7
 
+  cypress-tests:
+    name: Cypress Tests (${{ inputs.environment }})
+    runs-on: ubuntu-latest
+    # No dependencies - runs in PARALLEL with smoke, grid, mobile, responsive, and playwright
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: cypress/package-lock.json
+
+      - name: Install Cypress dependencies
+        working-directory: ./cypress
+        run: npm ci
+
+      - name: Install system dependencies for Cypress
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 || sudo apt-get install -y xvfb libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2
+
+      - name: Run Cypress Tests
+        timeout-minutes: 10
+        working-directory: ./cypress
+        env:
+          CYPRESS_BASE_URL: ${{ inputs.base_url }}
+          TEST_ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🎬 Cypress Tests - ${{ inputs.environment }}"
+          echo "════════════════════════════════════════"
+          echo "Environment: ${{ inputs.environment }}"
+          BASE_URL="${{ inputs.base_url }}"
+          if [ -z "$BASE_URL" ]; then
+            BASE_URL="https://www.google.com"
+          fi
+          echo "Base URL: $BASE_URL"
+          export CYPRESS_BASE_URL="$BASE_URL"
+          echo ""
+          xvfb-run -a npm run cypress:run
+
+      - name: Upload Cypress Test Results
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: cypress-results-${{ inputs.environment }}
+          path: |
+            cypress/cypress/videos/
+            cypress/cypress/screenshots/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  playwright-tests:
+    name: Playwright Tests (${{ inputs.environment }})
+    runs-on: ubuntu-latest
+    # No dependencies - runs in PARALLEL with smoke, grid, mobile, responsive, and cypress
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: playwright/package-lock.json
+
+      - name: Install Playwright dependencies
+        working-directory: ./playwright
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: ./playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright Tests
+        timeout-minutes: 10
+        working-directory: ./playwright
+        env:
+          BASE_URL: ${{ inputs.base_url }}
+          TEST_ENVIRONMENT: ${{ inputs.environment }}
+          CI: true
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🎭 Playwright Tests - ${{ inputs.environment }}"
+          echo "════════════════════════════════════════"
+          echo "Environment: ${{ inputs.environment }}"
+          BASE_URL="${{ inputs.base_url }}"
+          if [ -z "$BASE_URL" ]; then
+            BASE_URL="https://www.google.com"
+          fi
+          echo "Base URL: $BASE_URL"
+          export BASE_URL="$BASE_URL"
+          echo ""
+          npm test
+
+      - name: Upload Playwright Test Results
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: playwright-results-${{ inputs.environment }}
+          path: |
+            playwright/test-results/
+            playwright/playwright-report/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  robot-tests:
+    name: Robot Framework Tests (${{ inputs.environment }})
+    runs-on: ubuntu-latest
+    # No dependencies - runs in PARALLEL with smoke, grid, mobile, responsive, cypress, playwright, and selenide
+
+    services:
+      selenium-hub:
+        image: selenium/hub:4.26.0
+        ports:
+          - 4444:4444
+          - 4442:4442
+          - 4443:4443
+
+      chrome-node:
+        image: selenium/node-chrome:4.26.0
+        env:
+          SE_EVENT_BUS_HOST: selenium-hub
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+          SE_NODE_MAX_SESSIONS: 5
+        options: --shm-size=2gb
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install Robot Framework dependencies
+        run: |
+          pip install robotframework
+          pip install robotframework-seleniumlibrary
+          pip install robotframework-requests
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Wait for Selenium Grid
+        run: |
+          echo "⏳ Waiting for Grid..."
+          timeout 60 bash -c 'until curl -sf http://localhost:4444/wd/hub/status; do sleep 2; done'
+          sleep 5
+          echo "✅ Grid ready!"
+
+      - name: Run Robot Framework Tests
+        timeout-minutes: 10
+        env:
+          SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
+          TEST_ENVIRONMENT: ${{ inputs.environment }}
+          BASE_URL: ${{ inputs.base_url }}
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🤖 Robot Framework Tests - ${{ inputs.environment }}"
+          echo "════════════════════════════════════════"
+          echo "Environment: ${{ inputs.environment }}"
+          BASE_URL="${{ inputs.base_url }}"
+          if [ -z "$BASE_URL" ]; then
+            BASE_URL="https://www.google.com"
+          fi
+          echo "Base URL: $BASE_URL"
+          echo ""
+          ./mvnw test -Probot
+
+      - name: Upload Robot Framework Test Results
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: robot-results-${{ inputs.environment }}
+          path: |
+            target/robot-reports/
+          retention-days: 7
+          if-no-files-found: ignore
+
   selenide-tests:
     name: Selenide Tests (${{ inputs.environment }})
     runs-on: ubuntu-latest
-    # No dependencies - runs in PARALLEL with smoke, grid, mobile, and responsive
+    # No dependencies - runs in PARALLEL with smoke, grid, mobile, responsive, cypress, and playwright
 
     services:
       selenium-hub:
@@ -438,7 +631,7 @@ jobs:
   environment-allure-report:
     name: Allure Report (${{ inputs.environment }})
     runs-on: ubuntu-latest
-    needs: [smoke-tests, grid-tests, mobile-browser-tests, responsive-design-tests, selenide-tests]  # Wait for ALL tests
+    needs: [smoke-tests, grid-tests, mobile-browser-tests, responsive-design-tests, cypress-tests, playwright-tests, robot-tests, selenide-tests]  # Wait for ALL tests
     if: always()
 
     steps:
