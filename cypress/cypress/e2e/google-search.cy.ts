@@ -6,20 +6,23 @@ describe('Google Search Tests', () => {
   })
 
   it('should display Google homepage', () => {
-    cy.get('input[name="q"]').should('be.visible')
+    // Google now uses textarea instead of input for search box
+    cy.get('textarea[name="q"], input[name="q"]').should('be.visible')
     cy.title().should('contain', 'Google')
   })
 
   it('should perform a search', () => {
     const searchQuery: string = 'Cypress testing framework'
-    cy.get('input[name="q"]').type(searchQuery)
-    cy.get('input[name="q"]').type('{enter}')
+    // Use flexible selector that works with both textarea and input
+    cy.get('textarea[name="q"], input[name="q"]').type(searchQuery)
+    cy.get('textarea[name="q"], input[name="q"]').type('{enter}')
     cy.url().should('include', 'search')
     cy.get('#search').should('be.visible')
   })
 
   it('should navigate to search results', () => {
-    cy.get('input[name="q"]').type('Selenium WebDriver{enter}')
+    // Use flexible selector that works with both textarea and input
+    cy.get('textarea[name="q"], input[name="q"]').type('Selenium WebDriver{enter}')
     cy.get('h3').should('exist')
     cy.get('a[href*="selenium.dev"]').should('exist')
   })

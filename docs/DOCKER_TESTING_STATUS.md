@@ -102,6 +102,15 @@ docker-compose run --rm -e BASE_URL=https://www.google.com -e SELENIUM_REMOTE_UR
 
 ### Disk Space Issues
 If you encounter "no space left on device" errors:
+
+**Option 1: Run Tests Locally (No Docker)**
+```bash
+# Run Cypress, Playwright, and Robot Framework tests without Docker
+./scripts/run-tests-local.sh
+```
+See [LOCAL_TESTING_GUIDE.md](LOCAL_TESTING_GUIDE.md) for details.
+
+**Option 2: Clean Up Docker**
 ```bash
 # Clean up Docker
 docker system prune -a

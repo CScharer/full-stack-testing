@@ -521,7 +521,10 @@ Load and stress testing with industry-leading tools:
 ### Using Helper Scripts (Recommended)
 
 ```bash
-# Selenium tests (default)
+# Run all local tests (Cypress, Playwright, Robot Framework) - No Docker required!
+./scripts/run-tests-local.sh
+
+# Selenium tests (default - requires Docker/Grid)
 ./scripts/run-tests.sh Scenarios chrome
 
 # Playwright tests
@@ -542,6 +545,8 @@ Load and stress testing with industry-leading tools:
 # Just compile (no tests)
 ./scripts/compile.sh
 ```
+
+**💡 Tip**: Use `./scripts/run-tests-local.sh` to run tests without Docker (saves disk space!). See [docs/LOCAL_TESTING_GUIDE.md](docs/LOCAL_TESTING_GUIDE.md) for details.
 
 ### Using Maven Wrapper Directly
 

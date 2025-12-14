@@ -10,7 +10,9 @@ export class GoogleSearchPage {
 
   constructor(page: Page) {
     this.page = page
-    this.searchInput = page.locator("input[name='q']")
+    // Google now uses textarea instead of input for search box
+    // Use flexible selector that works with both
+    this.searchInput = page.locator("textarea[name='q'], input[name='q']")
     this.searchResults = page.locator('#search')
   }
 
