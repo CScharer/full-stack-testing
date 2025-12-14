@@ -113,7 +113,7 @@ def transform_data(records: list[dict], target_class: type[BaseModel]) -> list[B
     transformed_records: list[BaseModel] = []
     if len(records) == 0:
         return transformed_records
-    
+
     # Map JSON keys to Pydantic field names, handling typos and spaces
     key_mapping = {
         "name": "Name",
@@ -127,10 +127,10 @@ def transform_data(records: list[dict], target_class: type[BaseModel]) -> list[B
         "collation": "Collation",
         "foreign_key": "Foreign Key"  # Handle typo in JSON key
     }
-    
+
     for record in records:
         # Build mapped_item using the key mapping
-        mapped_item = {pydantic_key: record.get(json_key, None) 
+        mapped_item = {pydantic_key: record.get(json_key, None)
                       for pydantic_key, json_key in key_mapping.items()}
         # Use the Pydantic model to validate and instantiate the object
         try:
