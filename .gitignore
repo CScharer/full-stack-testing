@@ -177,3 +177,4 @@ target/allure-results/
 target/test-reports/
 checkstyle-current.xml
 build/
+DatabaseSchema.xlsx

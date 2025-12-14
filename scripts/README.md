@@ -36,6 +36,22 @@ Compile the project without running tests.
 ./scripts/compile.sh
 ```
 
+### `run-tests-local.sh`
+Run all test frameworks locally without Docker (Cypress, Playwright, Robot Framework).
+
+```bash
+# Run all local tests (no Docker required)
+./scripts/run-tests-local.sh
+```
+
+This script runs:
+- ✅ Cypress tests
+- ✅ Playwright tests
+- ✅ Robot Framework tests (API tests only)
+- ⚠️ Selenium/Java tests are skipped (require Selenium Grid)
+
+**See**: [docs/LOCAL_TESTING_GUIDE.md](../docs/LOCAL_TESTING_GUIDE.md) for complete guide.
+
 ## Making Scripts Executable
 
 If you need to make scripts executable:

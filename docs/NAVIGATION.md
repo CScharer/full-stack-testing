@@ -322,6 +322,7 @@ Project Structure:
 |---------------------|---------------|
 | **Set up project for first time** | `guides/setup/` → `README.md` |
 | **Run tests** | `guides/testing/TEST_EXECUTION_GUIDE.md` |
+| **Run tests locally (no Docker)** | `LOCAL_TESTING_GUIDE.md` |
 | **Set up Docker/Grid** | `guides/infrastructure/DOCKER.md` |
 | **Understand CI/CD** | `guides/infrastructure/GITHUB_ACTIONS.md` |
 | **Fix CI/CD issues** | `guides/troubleshooting/CI_TROUBLESHOOTING.md` |
@@ -350,9 +351,10 @@ Project Structure:
 
 #### 🧪 QA Engineer
 1. `guides/testing/` - All testing guides
-2. `analysis/2025-11-13-comprehensive/QUICK_ACTION_PLAN.md` - Testing priorities
-3. `guides/troubleshooting/` - Problem solving
-4. `guides/testing/ALLURE_REPORTING.md` - Reporting
+2. `LOCAL_TESTING_GUIDE.md` - Run tests locally without Docker
+3. `analysis/2025-11-13-comprehensive/QUICK_ACTION_PLAN.md` - Testing priorities
+4. `guides/troubleshooting/` - Problem solving
+5. `guides/testing/ALLURE_REPORTING.md` - Reporting
 
 #### 🔧 DevOps/Infrastructure
 1. `guides/infrastructure/` - All infrastructure docs
