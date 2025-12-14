@@ -10,8 +10,9 @@ PATH_JSON = os.path.join(SCRIPT_DIR, "ONE_GOAL.json")
 PATH_SQL = os.path.join(SCRIPT_DIR, "ONE_GOAL.sql")
 
 
-def read_file(file) -> str:
-    with open(file, "r") as file: return file.read()
+def read_file(filepath: str) -> str:
+    with open(filepath, "r") as f:
+        return f.read()
 
 def read_file_sql() -> str:
     return read_file(PATH_SQL)
@@ -110,10 +111,27 @@ def transform_data(records: list[dict], target_class: type[BaseModel]) -> list[B
     mapping the keys to the desired Pydantic model fields.
     """
     transformed_records: list[BaseModel] = []
-    if len(records) < 0: return transformed_records
+    if len(records) == 0:
+        return transformed_records
+    
+    # Map JSON keys to Pydantic field names, handling typos and spaces
+    key_mapping = {
+        "name": "Name",
+        "type": "Type",
+        "pk": "PK",
+        "nn": "NN",
+        "ai": "AI",
+        "u": "U",
+        "default": "Default",
+        "check": "Check",
+        "collation": "Collation",
+        "foreign_key": "Foreign Key"  # Handle typo in JSON key
+    }
+    
     for record in records:
-        # Create a dictionary that matches the Pydantic field names exactly
-        mapped_item = {node.lower(): record.get(node, None) for node in record}
+        # Build mapped_item using the key mapping
+        mapped_item = {pydantic_key: record.get(json_key, None) 
+                      for pydantic_key, json_key in key_mapping.items()}
         # Use the Pydantic model to validate and instantiate the object
         try:
             record_instance = target_class(**mapped_item)
