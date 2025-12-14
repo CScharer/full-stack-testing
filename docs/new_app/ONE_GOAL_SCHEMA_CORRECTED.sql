@@ -64,8 +64,6 @@ CREATE TABLE "contact" (
     "application_id" INTEGER,  -- Optional: link to specific application
     "name" TEXT NOT NULL,
     "title" TEXT NOT NULL DEFAULT 'Recruiter',
-    "email" TEXT,
-    "phone" TEXT,
     "linkedin" TEXT,
     "contact_type" TEXT NOT NULL,  -- 'Recruiter', 'Manager', 'Lead', 'Account Manager'
     "created_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
@@ -74,6 +72,34 @@ CREATE TABLE "contact" (
     "modified_by" TEXT NOT NULL,
     FOREIGN KEY("company_id") REFERENCES "company"("id"),
     FOREIGN KEY("application_id") REFERENCES "application"("id")
+);
+
+-- Contact emails (supports multiple emails per contact: Personal, Work, etc.)
+CREATE TABLE "contact_email" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "contact_id" INTEGER NOT NULL,
+    "email" TEXT NOT NULL,
+    "email_type" TEXT NOT NULL DEFAULT 'Work',  -- 'Personal', 'Work', 'Other'
+    "is_primary" INTEGER DEFAULT 0,  -- Boolean: 1 for primary email, 0 for others
+    "created_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "modified_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "created_by" TEXT NOT NULL,
+    "modified_by" TEXT NOT NULL,
+    FOREIGN KEY("contact_id") REFERENCES "contact"("id") ON DELETE CASCADE
+);
+
+-- Contact phone numbers (supports multiple phones per contact: Home, Cell, Work, etc.)
+CREATE TABLE "contact_phone" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "contact_id" INTEGER NOT NULL,
+    "phone" TEXT NOT NULL,
+    "phone_type" TEXT NOT NULL DEFAULT 'Work',  -- 'Home', 'Cell', 'Work', 'Other'
+    "is_primary" INTEGER DEFAULT 0,  -- Boolean: 1 for primary phone, 0 for others
+    "created_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "modified_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "created_by" TEXT NOT NULL,
+    "modified_by" TEXT NOT NULL,
+    FOREIGN KEY("contact_id") REFERENCES "contact"("id") ON DELETE CASCADE
 );
 
 -- Application notes
@@ -104,3 +130,7 @@ CREATE INDEX "idx_contact_company_id" ON "contact"("company_id");
 CREATE INDEX "idx_contact_application_id" ON "contact"("application_id");
 CREATE INDEX "idx_note_application_id" ON "note"("application_id");
 CREATE INDEX "idx_application_sync_sqlite_id" ON "application_sync"("sqlite_id");
+CREATE INDEX "idx_contact_email_contact_id" ON "contact_email"("contact_id");
+CREATE INDEX "idx_contact_email_primary" ON "contact_email"("contact_id", "is_primary");
+CREATE INDEX "idx_contact_phone_contact_id" ON "contact_phone"("contact_id");
+CREATE INDEX "idx_contact_phone_primary" ON "contact_phone"("contact_id", "is_primary");

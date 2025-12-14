@@ -238,8 +238,6 @@ CREATE TABLE "t_contact" (
     "application_id" INTEGER,  -- Optional: link to specific application
     "name" TEXT NOT NULL,
     "title" TEXT NOT NULL DEFAULT 'Recruiter',
-    "email" TEXT,
-    "phone" TEXT,
     "linkedin" TEXT,
     "contact_type" TEXT NOT NULL,  -- 'Recruiter', 'Manager', 'Lead', 'Account Manager'
     "created_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
@@ -248,6 +246,34 @@ CREATE TABLE "t_contact" (
     "modified_by" TEXT NOT NULL,
     Foreign Key("company_id") REFERENCES "t_company"("id"),
     Foreign Key("application_id") REFERENCES "t_application"("id")
+);
+
+-- Contact emails (supports multiple emails per contact: Personal, Work, etc.)
+CREATE TABLE "t_contact_email" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "contact_id" INTEGER NOT NULL,
+    "email" TEXT NOT NULL,
+    "email_type" TEXT NOT NULL DEFAULT 'Work',  -- 'Personal', 'Work', 'Other'
+    "is_primary" INTEGER DEFAULT 0,  -- Boolean: 1 for primary email, 0 for others
+    "created_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "modified_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "created_by" TEXT NOT NULL,
+    "modified_by" TEXT NOT NULL,
+    Foreign Key("contact_id") REFERENCES "t_contact"("id") ON DELETE CASCADE
+);
+
+-- Contact phone numbers (supports multiple phones per contact: Home, Cell, Work, etc.)
+CREATE TABLE "t_contact_phone" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "contact_id" INTEGER NOT NULL,
+    "phone" TEXT NOT NULL,
+    "phone_type" TEXT NOT NULL DEFAULT 'Work',  -- 'Home', 'Cell', 'Work', 'Other'
+    "is_primary" INTEGER DEFAULT 0,  -- Boolean: 1 for primary phone, 0 for others
+    "created_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "modified_on" TIMESTAMP NOT NULL DEFAULT (datetime('now', 'localtime')),
+    "created_by" TEXT NOT NULL,
+    "modified_by" TEXT NOT NULL,
+    Foreign Key("contact_id") REFERENCES "t_contact"("id") ON DELETE CASCADE
 );
 
 -- Application notes
@@ -279,6 +305,9 @@ CREATE TABLE "t_job_search_site" (
 3. ✅ **Correct data types** (INTEGER for Foreign Keys)
 4. ✅ **Better normalization** (company, contacts separated)
 5. ✅ **Contact type field** to distinguish recruiters, managers, etc.
+6. ✅ **Multiple emails per contact** - `contact_email` table supports Personal, Work, etc.
+7. ✅ **Multiple phone numbers per contact** - `contact_phone` table supports Home, Cell, Work, etc.
+8. ✅ **Primary contact method flags** - `is_primary` field to mark preferred email/phone
 
 ---
 
